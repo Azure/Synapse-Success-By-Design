@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Success by Design</title>
+    <link>https://azure.github.io/Synapse-Success-By-Design/</link>
+    <description>Recent content in Home on Success by Design</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://azure.github.io/Synapse-Success-By-Design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sbd Implementation</title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/sbd-implementation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/sbd-implementation/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.83.1" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Welcome to the Azure Synapse Analytics Content Repository. In this repository we have compiled the content that we have found helpful on our engagements with customers.
+This repository is intended to be a supplement to the official Azure Synapse documentation with additional specialized content and links to non-Microsoft generated content. We encourage you to review the official documentation also.
+Success By Design #  The Success By Design Implementation method is designed to help guide you to a successful solution implementation that includes Azure Synapse Analytics as a component.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Home" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://azure.github.io/Synapse-Success-By-Design/" />
+
+<title>Home | Success by Design</title>
+<link rel="manifest" href="/Synapse-Success-By-Design/manifest.json">
+<link rel="icon" href="/Synapse-Success-By-Design/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/Synapse-Success-By-Design/book.min.b41cdcc69680b20b305adc2d69f998108e387359ce0e8d2d5f091e788a5bb27c.css" integrity="sha256-tBzcxpaAsgswWtwtafmYEI44c1nODo0tXwkeeIpbsnw=" crossorigin="anonymous">
+  <script defer src="/Synapse-Success-By-Design/flexsearch.min.js"></script>
+  <script defer src="/Synapse-Success-By-Design/en.search.min.4d0c36f4c6864900779da934cea76d610ef4f8a4241d315d706b2ad121e22b77.js" integrity="sha256-TQw29MaGSQB3nak0zqdtYQ70&#43;KQkHTFdcGsq0SHiK3c=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="https://azure.github.io/Synapse-Success-By-Design/index.xml" title="Success by Design" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/Synapse-Success-By-Design/"><img src="/Synapse-Success-By-Design/images/azure-icon.png" alt="Logo" /><span>Success by Design</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/home/" class="">Home</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/poc-playbooks/" class="">Poc Playbooks</a>
+  
+
+          
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/success-by-design/" class="">Success by Design</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/tools-utilities/" class="">Tools Utilities</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/whats-new/" class="">Whats New</a>
+  
+
+          
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Synapse-Success-By-Design/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Home</strong>
+
+  <label for="toc-control">
+    
+    <img src="/Synapse-Success-By-Design/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sections">Sections</a></li>
+    <li><a href="#synapse-implementation-success-strategic-checkpoints">Synapse Implementation Success Strategic Checkpoints</a>
+      <ul>
+        <li><a href="#project-planning">Project Planning</a></li>
+        <li><a href="#solution-development">Solution Development</a></li>
+        <li><a href="#pre-go-live">Pre Go-Live</a></li>
+        <li><a href="#post-go-live">Post Go-Live</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><p><img src="https://www.flexmind.co/wp-content/uploads/2020/06/2.jpg" alt="Azure Synapse Analytics" /></p>
+<p>Welcome to the Azure Synapse Analytics Content Repository. In this repository we have compiled the content that we have found helpful on our engagements with customers.</p>
+<p>This repository is intended to be a supplement to the official <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/">Azure Synapse documentation</a> with additional specialized content and links to non-Microsoft generated content. We encourage you to review the official documentation also.</p>
+<h1 id="success-by-design">
+  Success By Design
+  <a class="anchor" href="#success-by-design">#</a>
+</h1>
+<p>The <strong>Success By Design</strong>  Implementation method is designed to help guide you to a successful solution implementation that includes Azure Synapse Analytics as a component. This method is designed to complement your solution implementation project by adding suggested checks at strategic points during your project that can help assure a successful implementation of Azure Synapse Analytics. This method does not replace or change your chosen project management method (SCRUM, Agile, Waterfall), but will suggest validations to make while your project is in flight to improve the success of your overall deployment to a production environment.</p>
+<p>Azure Synapse is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services such as Power BI, CosmosDB, and AzureML.</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is">What is Azure Synapse Analytics? - Azure Synapse Analytics | Microsoft Docs</a>
+<img src="https://docs.microsoft.com/en-us/azure/synapse-analytics/media/overview-what-is/synapse-architecture.png" alt="What is Synapse" /></p>
+<p>The Synapse Implementation Success method uses a strategic checkpoint approach to assessing and monitoring a project&rsquo;s progress.</p>
+<p>The goals of these checkpoints include:</p>
+<ul>
+<li>
+<p>Proactive identification of possible issues and blockers</p>
+</li>
+<li>
+<p>Continuous validation of the solution&rsquo;s fit to the use case</p>
+</li>
+<li>
+<p>Successful deployment to production</p>
+</li>
+<li>
+<p>Smooth operation and monitoring once in production</p>
+</li>
+</ul>
+<p>Synapse Implementation Success checkpoints are invoked at four key places within the Implementation Project:</p>
+<ul>
+<li>
+<p>Project Planning</p>
+</li>
+<li>
+<p>Solution Development</p>
+</li>
+<li>
+<p>Pre Go-Live</p>
+</li>
+<li>
+<p>Post Go-Live</p>
+</li>
+</ul>
+<h2 id="sections">
+  Sections
+  <a class="anchor" href="#sections">#</a>
+</h2>
+<ul>
+<li><a href="#synapse-implementation-success-strategic-checkpoints">Synapse Implementation Success Strategic Checkpoints</a>
+<ul>
+<li><a href="#project-planning">Project Planning</a></li>
+<li><a href="#solution-development">Solution Development</a></li>
+<li><a href="#pre-go-live">Pre Go-Live</a></li>
+<li><a href="#post-go-live">Post Go-Live</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<hr>
+<h2 id="synapse-implementation-success-strategic-checkpoints">
+  Synapse Implementation Success Strategic Checkpoints
+  <a class="anchor" href="#synapse-implementation-success-strategic-checkpoints">#</a>
+</h2>
+<p><em>Brief</em> outlines of the checkpoints that occur within these four strategic project phases. One paragraph - why here? how will it help? Short list of supporting checklists, documents, whatever we are going to be creating for use.</p>
+<h3 id="project-planning">
+  Project Planning
+  <a class="anchor" href="#project-planning">#</a>
+</h3>
+<h4 id="solution-evaluation">
+  Solution Evaluation
+  <a class="anchor" href="#solution-evaluation">#</a>
+</h4>
+<p>The Solution in total will need to be evaluated with a focus on how it is making use of Azure Synapse as part of the architecture.  This assessment will gather data that will identify the components of Azure Synapse that are being used, the interfaces each will have with other products, review the data sources, the data consumers, the personas, and use cases. The assessment will identify which Synapse components will be implemented and thus what evaluations and check points should be made throughout the implementation effort.</p>
+<ul>
+<li>
+<p>Perform an Assessment of the solution</p>
+</li>
+<li>
+<p>Identify the Azure Synapse Analytics solution components</p>
+</li>
+<li>
+<p>Execute Evaluations based upon the solution components</p>
+</li>
+<li>
+<p>Review the results of these evaluations and respond accordingly</p>
+</li>
+</ul>
+<h4 id="project-plan-evaluation">
+  Project plan Evaluation
+  <a class="anchor" href="#project-plan-evaluation">#</a>
+</h4>
+<p>Evaluate the project plan as it relates to the Azure Synapse Analytics work that needs to be completed.  This evaluation is not to make project plan changes but to identify steps that may be missing that could lead to blockers and impact the planned timeline. Once evaluated, the project plan may need to be modified and updated in response to the findings.</p>
+<ul>
+<li>
+<p>Evaluate Project Plan at a high level.</p>
+</li>
+<li>
+<p>Evaluate project planning specific to the solution architecture components of Azure Synapse Analytics being implemented.</p>
+</li>
+<li>
+<p>Review the results and adjust accordingly.</p>
+</li>
+</ul>
+<h4 id="assess-team-readiness-and-training">
+  Assess Team Readiness and Training
+  <a class="anchor" href="#assess-team-readiness-and-training">#</a>
+</h4>
+<p>Evaluate the project team in the aspect of their skill level and readiness to implement the solution incorporating Azure Synapse Analytics.</p>
+<p>It will be important for the project’s success to have the correct skillsets. There are many and differing skillsets required for a successful implementation using Azure Synapse Analytics. Take time at this point to identify gaps and secure resources with the required skillset or take the time to complete training.</p>
+<p>This evaluation is critical at this stage. The lack of the proper skillset will impact both the timeline and the overall success of the solution.</p>
+<ul>
+<li>
+<p>Evaluate the team Azure Synapse Analytics Skillset</p>
+</li>
+<li>
+<p>Secure additional skilled team members or skill-up team members</p>
+</li>
+</ul>
+<p><a href="#sections">Back to Sections</a></p>
+<h3 id="solution-development">
+  Solution Development
+  <a class="anchor" href="#solution-development">#</a>
+</h3>
+<h4 id="periodic-quality-checks">
+  Periodic Quality Checks
+  <a class="anchor" href="#periodic-quality-checks">#</a>
+</h4>
+<p>Throughout the solution development checks should be made periodically to validate that the solution being built with respect to recommended practices as they apply to the different components of Azure Synapse Analytics. Checking that the project use cases will be satisfied, and the enterprise requirements are being met.  For the purposes of this method, we are calling these periodic evaluations quality checks.</p>
+<p>Implement the following quality checks as appropriate to your solution.</p>
+<ul>
+<li>
+<p>Quality Checks for Workspaces</p>
+</li>
+<li>
+<p>Quality Checks for Data Integration</p>
+</li>
+<li>
+<p>Quality Checks for dedicated SQL Pools</p>
+</li>
+<li>
+<p>Quality Checks for serverless SQL Pools</p>
+</li>
+<li>
+<p>Quality Checks for Spark Pools</p>
+</li>
+</ul>
+<p><a href="#sections">Back to Sections</a></p>
+<h3 id="pre-go-live">
+  Pre Go-Live
+  <a class="anchor" href="#pre-go-live">#</a>
+</h3>
+<p>Prior to deploying your solution to production, the following reviews are recommended to assess the preparedness of the solution and the organization for adoption and support of the solution on Azure Synapse Analytics. The Go-Live checklists for the specific Azure Synapse Analytics components will provide a final check of readiness to successfully move to production.</p>
+<ul>
+<li>
+<p><strong>Operational Readiness Review</strong></p>
+</li>
+<li>
+<p><strong>Continued Dev (CI/CD etc.) Preparedness</strong></p>
+</li>
+<li>
+<p><strong>User Readiness and onboarding plan Review</strong></p>
+</li>
+<li>
+<p>Complete the <strong>Go-Live checklist for Workspaces</strong></p>
+</li>
+<li>
+<p>Complete the <strong>Go-Live checklist for Data Integration</strong></p>
+</li>
+<li>
+<p>Complete the Go-Live check list(s) fitting your Azure Synapse Analytics solution</p>
+<ul>
+<li>
+<p><strong>Dedicated SQL Pool</strong></p>
+</li>
+<li>
+<p><strong>Serverless SQL Pool</strong></p>
+</li>
+<li>
+<p><strong>Spark Pool</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="#sections">Back to Sections</a></p>
+<h3 id="post-go-live">
+  Post Go-Live
+  <a class="anchor" href="#post-go-live">#</a>
+</h3>
+<p>Content coming soon</p>
+<p><a href="#sections">Back to Sections</a></p>
+<hr>
+<h2 id="conclusion">
+  Conclusion
+  <a class="anchor" href="#conclusion">#</a>
+</h2>
+<p>The Success By Design Synapse Implementation Success method is provided to help you with your success in implementing a solution incorporating Azure Synapse Analytics. By utilizing this method during your Azure Synapse Analytics implementation project, you should be able to identify and address any issues early on and deploy to production a solution that benefits your business and delights your users.</p>
+<p><a href="#sections">Back to Sections</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        <hr />
+Azure Synapse &copy;2021 <br />
+Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Synapse homepage</a> or read our <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started">getting started guide</a> or the 
+<a href="https://techcommunity.microsoft.com/t5/azure-synapse-analytics/bg-p/AzureSynapseAnalyticsBlog">Azure Synapse Blog</a>. <br />
+Contact us: <a href="mailto:synapsefeedback@microsoft.com?subject=AzureSynapse.com%20Feedback">synapsefeedback@microsoft.com</a>.<br />
+Generated on Thu, Jun 10 2021 17:01:54 UTC
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sections">Sections</a></li>
+    <li><a href="#synapse-implementation-success-strategic-checkpoints">Synapse Implementation Success Strategic Checkpoints</a>
+      <ul>
+        <li><a href="#project-planning">Project Planning</a></li>
+        <li><a href="#solution-development">Solution Development</a></li>
+        <li><a href="#pre-go-live">Pre Go-Live</a></li>
+        <li><a href="#post-go-live">Post Go-Live</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+<script>
+    $('a[href^="http://"], a[href^="https://"]').not('a[href*="'+location.hostname+'"]').attr('target','_blank');
+</script>
+
+<script type="text/javascript">
+    !function(T,l,y){var S=T.location,u="script",k="instrumentationKey",D="ingestionendpoint",C="disableExceptionTracking",E="ai.device.",I="toLowerCase",b="crossOrigin",w="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"4",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[I](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,p,l,u;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][I]()]=i[1])}if(!e[D]){var r=e.endpointsuffix,o=r?e.location:null;e[D]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[k]||d[k]||"",p=s[D],l=p?p+"/v2/track":config.endpointUrl,(u=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=l,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),u.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,l)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:w,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(w,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(u,l))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(u);n.src=h;var e=y[b];return!e&&""!==e||"undefined"==n[b]||(n[b]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(u)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[C]&&!0!==s[C]){method="onerror",t(["_"+method]);var c=T[method];T[method]=function(e,t,n,a,i){var r=c&&c(e,t,n,a,i);return!0!==r&&m["_"+method]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);(T[t]=n).queue&&0===n.queue.length&&n.trackPageView({})}(window,document,{
+    src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js", 
+    
+    
+    
+    
+    cfg: { 
+        instrumentationKey: "0600b273-5440-42cc-9fe4-51924c721ce0"
+         
+    }});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
