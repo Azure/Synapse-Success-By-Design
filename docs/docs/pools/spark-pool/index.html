@@ -3,19 +3,24 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Categories" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://azure.github.io/Synapse-Success-By-Design/categories/" />
+<meta name="description" content="SBD – Spark Pool Design Evaluation #  Apache Spark in Synapse brings the Apache Spark parallel data processing to the Azure Synapse.
+Fit Gap Analysis #  When planning to implement Spark pools with Azure Synapse, you first need to ensure Apache Spark Pools in Azure Synapse is the best fit for your workload. These are the items to consider for utilizing Apache Spark in Synapse:
+  Does your workload require data engineering/data preparation?">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Spark Pools" />
+<meta property="og:description" content="SBD – Spark Pool Design Evaluation #  Apache Spark in Synapse brings the Apache Spark parallel data processing to the Azure Synapse.
+Fit Gap Analysis #  When planning to implement Spark pools with Azure Synapse, you first need to ensure Apache Spark Pools in Azure Synapse is the best fit for your workload. These are the items to consider for utilizing Apache Spark in Synapse:
+  Does your workload require data engineering/data preparation?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://azure.github.io/Synapse-Success-By-Design/docs/pools/spark-pool/" /><meta property="article:section" content="docs" />
 
-<title>Categories | Success by Design</title>
+
+
+<title>Spark Pools | Success by Design</title>
 <link rel="manifest" href="/Synapse-Success-By-Design/manifest.json">
 <link rel="icon" href="/Synapse-Success-By-Design/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/Synapse-Success-By-Design/book.min.b41cdcc69680b20b305adc2d69f998108e387359ce0e8d2d5f091e788a5bb27c.css" integrity="sha256-tBzcxpaAsgswWtwtafmYEI44c1nODo0tXwkeeIpbsnw=" crossorigin="anonymous">
   <script defer src="/Synapse-Success-By-Design/flexsearch.min.js"></script>
   <script defer src="/Synapse-Success-By-Design/en.search.min.be0ceeb2ecfcda1e18d3db028aa27f91b108f08d0f8bbbded9e371b2449362f0.js" integrity="sha256-vgzusuz82h4Y09sCiqJ/kbEI8I0Pi7ve2eNxskSTYvA=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="https://azure.github.io/Synapse-Success-By-Design/categories/index.xml" title="Success by Design" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -150,7 +155,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/pools/spark-pool/" class="">Spark Pools</a>
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/pools/spark-pool/" class=" active">Spark Pools</a>
   
 
         </li>
@@ -232,7 +237,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/Synapse-Success-By-Design/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Categories</strong>
+  <strong>Spark Pools</strong>
 
   <label for="toc-control">
     
@@ -245,29 +250,9 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav>
-  <ul>
   
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
+
 
 
   </aside>
@@ -277,11 +262,159 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  
-
-  
-
-
+  <article class="markdown"><h1 id="sbd--spark-pool-design-evaluation">
+  SBD – Spark Pool Design Evaluation
+  <a class="anchor" href="#sbd--spark-pool-design-evaluation">#</a>
+</h1>
+<p>Apache Spark in Synapse brings the Apache Spark parallel data processing
+to the Azure Synapse.</p>
+<h1 id="fit-gap-analysis">
+  Fit Gap Analysis
+  <a class="anchor" href="#fit-gap-analysis">#</a>
+</h1>
+<p>When planning to implement Spark pools with Azure Synapse, you first
+need to ensure Apache Spark Pools in Azure Synapse is the best fit for
+your workload. These are the items to consider for utilizing Apache
+Spark in Synapse:</p>
+<ol>
+<li>
+<p>Does your workload require data engineering/data preparation?</p>
+<ul>
+<li>
+<p>Apache Spark works best for workloads that require:</p>
+<ol>
+<li>
+<p>Data Cleaning</p>
+</li>
+<li>
+<p>Transforming semi-structured data like XML into relational</p>
+</li>
+<li>
+<p>Complex free-text transformation (fuzzy matching, NLP)</p>
+</li>
+<li>
+<p>Prepping data for machine</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Is your workload for data engineering/data preparation complex or
+simple transformations? Are you looking for a low code/no code
+approach?</p>
+<ul>
+<li>
+<p>For simple transformations such as dropping of columns, casting
+of columns, or joining two datasets. Consider using Data Flows
+within Synapse Pipelines.</p>
+</li>
+<li>
+<p>Data Flows also provides a low code/no code approach to your
+data processing.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Does your workload require machine learning on Big Data?</p>
+<ul>
+<li>Apache Spark works well for large datasets that will be used for
+machine learning. If using small datasets, consider using <a href="https://docs.microsoft.com/en-us/azure/machine-learning/overview-what-is-azure-ml">Azure
+Machine
+Learning</a>
+as the compute.</li>
+</ul>
+</li>
+<li>
+<p>Do you plan to perform data exploration and need an ad-hoc query
+analysis on Big Data?</p>
+<ul>
+<li>Apache Spark in Azure Synapse provides Python/Scala/SQL/.NET
+based data exploration. However, if you need full T-SQL
+experience consider using <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/on-demand-workspace-overview">Synapse SQL
+Serverless</a>.</li>
+</ul>
+</li>
+<li>
+<p>Do you have a current Spark/Hadoop workload and need a unified Big
+Data Platform?</p>
+<ul>
+<li>
+<p>Azure Synapse provides a full unified analytical platform for
+working with Big Data from Spark to SQL Serverless for ad-hoc
+queries to SQL on dedicated pools for reporting and serving of
+data.</p>
+</li>
+<li>
+<p>Moving from a Spark/Hadoop workload from on-prem or another
+cloud environment may require refactoring and should be
+considered.</p>
+</li>
+<li>
+<p>If you are looking for a lift and shift approach for your Apache
+Big Data environment from on-prem to the cloud and require
+strict data engineering SLA, use
+<a href="https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-overview">HDInsight</a></p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="architecture-considerations">
+  Architecture Considerations
+  <a class="anchor" href="#architecture-considerations">#</a>
+</h1>
+<p>To ensure that your Apache Spark pool meets your operational,
+performance, and security requirements, there are key areas to address
+in your architecture.</p>
+<h1 id="operational-excellence">
+  Operational Excellence
+  <a class="anchor" href="#operational-excellence">#</a>
+</h1>
+<p><strong>Environment Configuration</strong></p>
+<p>When configuring your environment ensure that you have designed your
+pool to take advantage of features such as auto-scale and dynamic
+allocation. Also consider utilizing the automatic pause feature to
+reduce costs.</p>
+<p><strong>Package Management</strong></p>
+<p>Determine if the Apache Spark libraries to be used will be used at a
+Workspace, Pool, or Session level. When managing packages at each level
+there are different considerations to
+<a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-azure-portal-add-libraries">consider</a>.</p>
+<p><strong>Monitoring</strong></p>
+<p>Apache Spark in Azure Synapse provides built-in Spark
+<a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/monitoring/how-to-monitor-spark-pools">pool</a>
+and
+<a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/monitoring/apache-spark-applications">application</a>
+monitoring with the creation of each spark session. Also consider
+implementing application monitoring with Azure <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-azure-log-analytics">Log
+Analytics</a>
+or <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics">Prometheus and
+Grafana</a>
+to visualize metrics and logs.</p>
+<p><strong>Networking</strong></p>
+<p>If designing to use a managed virtual network with Azure Synapse
+consider the implications this will have on Apache Spark in Azure
+Synapse. One such consideration is the inability to use Spark SQL when
+accessing data.</p>
+<p>Performance Efficiency</p>
+<p><strong>File size and File type:</strong> The size of the file and the type of file
+for reading and writing to and from Apache Spark to cloud storage is key
+to good performance. Both should be handled prior to ingestion to Apache
+Spark. Design the architecture to ensure that the files types are file
+types that is conducive to native ingestion with Apache Spark. Also
+ensure that the size of the files are large files and not many small
+files.</p>
+<p><strong>Partitioning:</strong> Determine if partitioning at the folder and/or file
+level will be implemented for your workload. Folder partition limits the
+amount of data to be searched and read. File partitioning reduces the
+amount of data to be searched in the file but only applies to specific
+file formats and needs to be considered in the initial architecture.</p>
+<p>Security</p>
+<p>Security for the data to be accessed must be considered at the ADLS
+account that is attached to the Synapse workspace. In addition,
+determine the security levels that should be required to access any data
+that is not within the Synapse environment.</p>
+</article>
  
       
 
@@ -311,6 +444,10 @@ Generated on Thu, Jun 10 2021 18:27:43 UTC
 
       
   
+  <div class="book-comments">
+
+</div>
+  
  
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -320,29 +457,9 @@ Generated on Thu, Jun 10 2021 18:27:43 UTC
     <aside class="book-toc">
       <div class="book-toc-content">
         
-  <nav>
-  <ul>
   
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
+
 
  
       </div>

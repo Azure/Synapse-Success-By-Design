@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SQL Serverless Pool #  Separation of storage and compute as a design principle for modern data and analytical platforms and services has been a trend and frequently used pattern since it provided cost savings and more flexibility in on-demand scaling of your storage and compute independently. Synapse SQL Serverless (Serverless SQL pool - Azure Synapse Analytics | Microsoft Docs) further extends this pattern and adds an important capability to query your data directly from your data lake storage and not to worry about compute management while leveraging self-service types of workload.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Serverless Pools" />
+<meta property="og:description" content="SQL Serverless Pool #  Separation of storage and compute as a design principle for modern data and analytical platforms and services has been a trend and frequently used pattern since it provided cost savings and more flexibility in on-demand scaling of your storage and compute independently. Synapse SQL Serverless (Serverless SQL pool - Azure Synapse Analytics | Microsoft Docs) further extends this pattern and adds an important capability to query your data directly from your data lake storage and not to worry about compute management while leveraging self-service types of workload." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://azure.github.io/Synapse-Success-By-Design/docs/pools/serverless/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Serverless Pools | Success by Design</title>
+<link rel="manifest" href="/Synapse-Success-By-Design/manifest.json">
+<link rel="icon" href="/Synapse-Success-By-Design/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/Synapse-Success-By-Design/book.min.b41cdcc69680b20b305adc2d69f998108e387359ce0e8d2d5f091e788a5bb27c.css" integrity="sha256-tBzcxpaAsgswWtwtafmYEI44c1nODo0tXwkeeIpbsnw=" crossorigin="anonymous">
+  <script defer src="/Synapse-Success-By-Design/flexsearch.min.js"></script>
+  <script defer src="/Synapse-Success-By-Design/en.search.min.be0ceeb2ecfcda1e18d3db028aa27f91b108f08d0f8bbbded9e371b2449362f0.js" integrity="sha256-vgzusuz82h4Y09sCiqJ/kbEI8I0Pi7ve2eNxskSTYvA=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/Synapse-Success-By-Design/"><img src="/Synapse-Success-By-Design/images/azure-icon.png" alt="Logo" /><span>Success by Design</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/home/" class="">Home</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/poc-playbooks/" class="">Poc Playbooks</a>
+  
+
+          
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/success-by-design/" class="">Success by Design</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/whats-new/" class="">Whats New</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/pools/dedicated/" class="">Dedicated Pools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/pools/serverless/" class=" active">Serverless Pools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/pools/spark-pool/" class="">Spark Pools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/project/evaluate-project-team/" class="">Evaluate Project Team</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/project/evaluate-project-plan/" class="">Evaluate Project Plan</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/tools-utilities/" class="">Tools Utilities</a>
+  
+
+          
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Synapse-Success-By-Design/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Serverless Pools</strong>
+
+  <label for="toc-control">
+    
+    <img src="/Synapse-Success-By-Design/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="sql-serverless-pool">
+  SQL Serverless Pool
+  <a class="anchor" href="#sql-serverless-pool">#</a>
+</h1>
+<p>Separation of storage and compute as a design principle for modern data
+and analytical platforms and services has been a trend and frequently
+used pattern since it provided cost savings and more flexibility in
+on-demand scaling of your storage and compute independently. Synapse SQL
+Serverless (Serverless SQL pool - Azure Synapse Analytics | Microsoft
+Docs) further extends this pattern and adds an important capability to
+query your data directly from your data lake storage and not to worry
+about compute management while leveraging self-service types of
+workload.</p>
+<p>The purpose of the following is to provide core guidance for
+implementations and architectures that include Synapse SQL Serverless
+pools and try to reduce blockers and frequently found on the course of
+the implementation of modern data architectures based on Azure Synapse
+or later in the production stages. <del>To be consistent with guiding
+tenets of Well Architected Framework (Microsoft Azure Well-Architected
+Framework - Azure Architecture Center | Microsoft Docs) that aim to
+improve the quality of a workload we are going to try to reuse the main
+pillars that will allow better structure of the information and also
+help to introduce necessary checkpoints in the corresponding phases of
+you project execution.</del></p>
+<p>Before we dig into each one of the categories - Operational Excellence,
+Performance Efficiency, Reliability and Security - make sure you have a
+clear understanding of a future workload that you are aiming to land on
+SQL Serverless. While in many cases pay-per-query and autoscaling
+capabilities of querying data directly from your data lake storage are
+frequent motivation points, design should fit the purpose therefore
+validation of the type/s of workload would be a good starting point and
+the first suggested checkpoint.</p>
+<p>In the scope of the architecture, we typically expect data science,
+exploratory analysis and self service purposes to be the main drivers
+for SQL Serverless along with a need for flexible data sharing scenarios
+across frameworks and technologies, especially when there are some
+operational or technical impediments to extend ETL/ELT processes for
+loading/unloading data to and from different engines and data stores.</p>
+<p>Some use cases will drive extremely high concurrency to your Synapse SQL
+Dedicated pools service (streaming or IoT with considerable number of
+independent processing threads that produce write operations). That
+scenario could potentially be a good fit for leveraging Data Lake and
+SQL Serverless for part of your workload (raw area stream writes to Data
+Lake and SQL Serverless based access to storage that requires most
+recent data).</p>
+<p>You want to validate if fast data ingestion, more immediate data
+availability for exploration or reporting, flexibility in tools or
+frameworks that need to deal with the data are required and relaxed SLAs
+fit your use case/s and requirements. In many cases you will find a good
+fit when Synapse SQL and Synapse Spark (What is Apache Spark - Azure
+Synapse Analytics | Microsoft Docs) are being used on the same data and
+there is no need to add additional complexity. Read more about sharing
+metadata between SQL Serverless and Synapse Spark engine (Shared
+metadata model - Azure Synapse Analytics | Microsoft Docs)</p>
+<p>1.- Operational Excellence</p>
+<blockquote>
+<p><strong>Environment</strong>: check if a single Synapse workspace fits your
+security and organizational requirements. More than one might be
+necessary in case you are obliged to segregate your production and
+dev/test users and workloads.</p>
+<p><strong>Model and change management</strong>: if more than a single Synapse
+environment is required, consider placing critical scripts and DDLs
+onto a repository and sync the environments via pull requests.</p>
+<p><strong>Deployment</strong>: SQL Serverless per se does not require any special
+deployment actions and you will have that service available on-demand
+with every Synapse workspace. Check regional proximity of the service
+and that of the Data Lake Storage Gen2 you access with SQL Serverless.</p>
+<p><strong>Testing</strong>: check if your testing routines can be put and automated
+as part of your deployment pipelines by leveraging services like Azure
+DevOps. If certain testing is bound to performance, check and ensure
+stats have been created first by executing the benchmark workload
+beforehand.</p>
+<p><strong>Monitoring</strong>: check if build-in monitoring is sufficient and if some
+external services need to put in place to store historical log data,
+in order to be able to analyze changes in performance or allow you to
+define alerting or triggered actions for specific situations.</p>
+</blockquote>
+<p>2.- Performance Efficiency</p>
+<blockquote>
+<p>Unlike traditional database engines, SQL Serverless does not rely on
+its own optimized storage layer and for that reason its performance is
+strongly dependent on how data is organized in Azure Data Lake Storage
+Gen2.</p>
+<p>Having a design and organization of your data files that projects good
+partitioning of your data, you can expect reliable performance of SQL
+Serverless, however the dedicated SQL pools usually would outperform
+the former and provide more flexibility in terms of tuning
+capabilities and workload management. Consider this point carefully
+when you have strict performance SLAs.</p>
+<p><strong>Data Ingestion</strong>: check how data is stored in Data Lake Storage
+Gen2, i.e., the file sizes, number of files, and folder structure have
+an impact on performance. Keep in mind that while some file sizes
+might work for SQL Serverless, but on the other side might impose
+troubles for efficient processing or consumption by other engines and
+applications.</p>
+<p><strong>Data Placement</strong>: check if you can unify and define common pattern
+for data placement and make sure that directory branching can support
+your security requirements. There are a few common patterns that help
+you keep your time series data organized. Whichever your choice is,
+make sure that it also works with other engines and workloads like if
+it can help partition auto-discovery for Spark applications and
+external tables.</p>
+<p><strong>Data Formats</strong>: there are number of choices and most probably you
+will be dealing with different formats on different layers of your
+Data Lake as each layer might need to support distinct types of
+workloads (like heavy writes or where schema evolves frequently vs
+others that should be more oriented for efficient exploration). Today
+SQL Serverless in most cases will offer the best performance and
+better compatibility feature-wise with Parquet format. Check your
+performance and compatibility requirements what format works best in
+your case, because while Parquet improves performance through better
+compression and reduction of IO by reading only required columns
+needed for the analysis, it requires additional compute and some
+source systems do not natively support Parquet for export output
+format which would lead for additional transformation steps in your
+pipelines and/or dependencies in your overall architecture.</p>
+<p>Data transformations and conversions into desirable format can be
+easily and very efficiently achieved with Synapse Spark Pools - check
+if you can leverage that service in your data pipelines.</p>
+<p><strong>Exploration</strong>: every industry is different, but in many cases, there
+are certain data access patterns that will be common across most
+frequent queries of your workload., i.e. filtering and aggregations by
+dates, categories or geographies that are core to customers business.
+Check your most common filtering criteria, relate these to how much
+data is being read/discarded by top used queries and validate if the
+information on Data Lake is organized that favors your exploration
+performance expectations.</p>
+<p>Check in your queries if you effectively eliminate unnecessary
+partitions in your OPENROWSET path parameter or, in case of external
+tables, if additional indexing is required.</p>
+<p>Bear in mind that some tools like Power BI in addition can compensate
+and provide an additional layer of caching (Query caching in Power BI
+Premium - Power BI | Microsoft Docs) and compression techniques to
+fit necessary datasets in memory and improve end user experience in
+case of SQL Serverless - evaluate if tools with such characteristics
+need to be also included in your architecture from the beginning.</p>
+</blockquote>
+<p>3- Reliability</p>
+<blockquote>
+<p><strong>Availability</strong>: check if there are strict requirements for
+availability. While there are no specific SLAs for serverless and
+resources for query execution are being acquired on-demand, currently
+there is 30 min timeout for query execution which might break the
+expectations for your workload and appear to be a service problem. In
+such cases check if some of the best practices have not been applied.</p>
+<p><strong>Consistency</strong>: SQL Serverless is mostly for read workloads, validate
+if all consistency checks have been performed during the Data Lake
+data provisioning and formation process. Keep on your radar new
+capabilities like recent addition of Delta Lake open-source storage
+layer which provides support for ACID (Atomicity, Consistency,
+Isolation and Durability) guarantees for transactions and it allows us
+to implement effective lambda/kappa architectures to support both
+streaming and batch use cases.</p>
+<p><strong>Backup</strong>: weigh on your disaster recovery requirements: SQL
+Serverless does not have its own storage layer and that would require
+handling snapshots and backup copies of your data mostly externally
+(except situations when you can use CETAS to make copies of your
+critical data referenced by external tables.). In many Data Lake
+implementations there is always a way to recover/rebuild your data
+from RAW (should be immutable) layers where you should keep the
+required amount of historical data that could cover your worst-case
+scenarios.</p>
+</blockquote>
+<p>4- Security</p>
+<blockquote>
+<p>Organization of your data is also important for building flexible
+security foundations: in most cases different processes and users will
+require different permissions and access to specific sub-areas or your
+Data Lake or logical Data Warehouse.</p>
+<p><strong>Data Storage</strong>: Check if typical Raw, Stage and Curated data lake
+areas need to be placed on the same Storage Account vs independent
+Storage Accounts. The latter might result in more flexibility in terms
+of roles and permissions and also adds additional IOPS capacity that
+might be needed in case your architecture must support heavy and
+simultaneous read/write workloads (potentially that could be a case of
+real time or IoT scenarios). Validate if you need to further segregate
+and keep your Sandboxed areas and Master Data areas on separate
+Accounts as well. Most of the users will not need to update and delete
+data and therefore do not need write permissions to your Data Lake,
+except Sandboxed and private areas.</p>
+<p>Check what requirements point down to features like <em>Always
+Encrypted</em>, <em>Dynamic Data Masking</em> or <em>Row Level Security</em> and
+availability of these in a specific scenario - like with OPENROWSET -
+and anticipate potential workarounds in case these requirements might
+be blocked by current feature availability.</p>
+<p>Additionally, check what would be the best authentication methods,
+i.e. AAD Service Principals, SAS, when and how Authentication
+pass-through can be leveraged and integrated in the exploration tool
+of choice of the customer.</p>
+</blockquote>
+<p>5- Other considerations</p>
+<blockquote>
+<p><strong>Best Practices</strong>: check if you have put in place our best practices
+and recommendations (Best practices for serverless SQL pool - Azure
+Synapse Analytics | Microsoft Docs). Special attention for filter
+optimization and proper collation for predicate push-down to work
+properly.</p>
+<p><del><strong>Service limits</strong>: additionally, check for current service limits
+like number of SQL Serverless Pools (1) per workspace, max query
+execution time (30 min), max number of columns that you can handle
+with OPENROWSET (1024), or what T-SQL surface area is supported, DML
+statements, etc.</del></p>
+</blockquote>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        <hr />
+Azure Synapse &copy;2021 <br />
+Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Synapse homepage</a> or read our <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started">getting started guide</a> or the 
+<a href="https://techcommunity.microsoft.com/t5/azure-synapse-analytics/bg-p/AzureSynapseAnalyticsBlog">Azure Synapse Blog</a>. <br />
+Contact us: <a href="mailto:synapsefeedback@microsoft.com?subject=AzureSynapse.com%20Feedback">synapsefeedback@microsoft.com</a>.<br />
+Generated on Thu, Jun 10 2021 18:27:43 UTC
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents"></nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+<script>
+    $('a[href^="http://"], a[href^="https://"]').not('a[href*="'+location.hostname+'"]').attr('target','_blank');
+</script>
+
+<script type="text/javascript">
+    !function(T,l,y){var S=T.location,u="script",k="instrumentationKey",D="ingestionendpoint",C="disableExceptionTracking",E="ai.device.",I="toLowerCase",b="crossOrigin",w="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"4",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[I](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,p,l,u;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][I]()]=i[1])}if(!e[D]){var r=e.endpointsuffix,o=r?e.location:null;e[D]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[k]||d[k]||"",p=s[D],l=p?p+"/v2/track":config.endpointUrl,(u=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=l,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),u.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,l)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:w,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(w,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(u,l))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(u);n.src=h;var e=y[b];return!e&&""!==e||"undefined"==n[b]||(n[b]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(u)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[C]&&!0!==s[C]){method="onerror",t(["_"+method]);var c=T[method];T[method]=function(e,t,n,a,i){var r=c&&c(e,t,n,a,i);return!0!==r&&m["_"+method]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);(T[t]=n).queue&&0===n.queue.length&&n.trackPageView({})}(window,document,{
+    src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js", 
+    
+    
+    
+    
+    cfg: { 
+        instrumentationKey: "0600b273-5440-42cc-9fe4-51924c721ce0"
+         
+    }});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
