@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Success by Design</title>
+    <link>https://azure.github.io/Synapse-Success-By-Design/</link>
+    <description>Recent content in Home on Success by Design</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Jun 2021 18:50:27 +0100</lastBuildDate><atom:link href="https://azure.github.io/Synapse-Success-By-Design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sbd Implementation</title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/sbd-implementation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/sbd-implementation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dedicated Pools</title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/pools/dedicated/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/pools/dedicated/</guid>
+      <description>SQL Provisioned Pool #  Azure Synapse Analytics is an analytics service that brings together enterprise data warehousing and Big Data analytics. Dedicated SQL pool (formerly SQL DW) refers to the enterprise data warehousing features that are available in Azure Synapse Analytics.
+Synapse SQL leverages a scale out architecture to distribute computational processing of data across multiple nodes. Compute is separate from storage, which enables you to scale compute independently of the data in your system.</description>
+    </item>
+    
+    <item>
+      <title>Serverless Pools</title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/pools/serverless/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/pools/serverless/</guid>
+      <description>SQL Serverless Pool #  Separation of storage and compute as a design principle for modern data and analytical platforms and services has been a trend and frequently used pattern since it provided cost savings and more flexibility in on-demand scaling of your storage and compute independently. Synapse SQL Serverless (Serverless SQL pool - Azure Synapse Analytics | Microsoft Docs) further extends this pattern and adds an important capability to query your data directly from your data lake storage and not to worry about compute management while leveraging self-service types of workload.</description>
+    </item>
+    
+    <item>
+      <title>Spark Pools</title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/pools/spark-pool/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/pools/spark-pool/</guid>
+      <description>SBD – Spark Pool Design Evaluation #  Apache Spark in Synapse brings the Apache Spark parallel data processing to the Azure Synapse.
+Fit Gap Analysis #  When planning to implement Spark pools with Azure Synapse, you first need to ensure Apache Spark Pools in Azure Synapse is the best fit for your workload. These are the items to consider for utilizing Apache Spark in Synapse:
+  Does your workload require data engineering/data preparation?</description>
+    </item>
+    
+    <item>
+      <title>Evaluate Project Team</title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/project/evaluate-project-team/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/project/evaluate-project-team/</guid>
+      <description>Sample https://docs.microsoft.com/en-us/learn/modules/explore-roles-responsibilities-world-of-data/
+Certifications https://docs.microsoft.com/en-us/learn/certifications/browse/?products=azure
+Evaluate Project Team Readiness
+What are the roles and skillsets required for a successful implementation using Azure Synapse Analytics?
+  Synapse Administrator
+  Synapse Database Administrator
+  Synapse Data Engineer
+  Synapse Data Analyst
+  Synapse Data Scientist
+  Azure Administrator
+  Azure Security Engineer
+  Azure DevOps Engineer
+  Synapse Administrator
+A Synapse Administrator is responsible for the administration of the overall Azure Synapse environment.</description>
+    </item>
+    
+    <item>
+      <title>Evaluate Project Plan</title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/project/evaluate-project-plan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/project/evaluate-project-plan/</guid>
+      <description>In the project’s lifecycle, the most important and extensive planning is performed before implementation. This article will provide a high level QUICK review of the project plan to make sure it contains critical artifacts and information for a successful project.
+Below is the checklist of items that must be defined and approved before the project is initiated.
+The Project Plan
+  Core Resource Team – core group of key people, each of whom offers expertise crucial to the project.</description>
+    </item>
+    
+    <item>
+      <title>Spark Pools</title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/pools/spark-pools/</link>
+      <pubDate>Thu, 10 Jun 2021 18:50:27 +0100</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/pools/spark-pools/</guid>
+      <description>SBD – Spark Pool Design Evaluation #  Apache Spark in Synapse brings the Apache Spark parallel data processing to the Azure Synapse.
+Fit Gap Analysis #  When planning to implement Spark pools with Azure Synapse, you first need to ensure Apache Spark Pools in Azure Synapse is the best fit for your workload. These are the items to consider for utilizing Apache Spark in Synapse:
+  Does your workload require data engineering/data preparation?</description>
+    </item>
+    
+    <item>
+      <title>Provisioned Sql Pools</title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/pools/provisioned-sql-pools/</link>
+      <pubDate>Thu, 10 Jun 2021 18:50:10 +0100</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/pools/provisioned-sql-pools/</guid>
+      <description>SQL Provisioned Pool #  Azure Synapse Analytics is an analytics service that brings together enterprise data warehousing and Big Data analytics. Dedicated SQL pool (formerly SQL DW) refers to the enterprise data warehousing features that are available in Azure Synapse Analytics.
+Synapse SQL leverages a scale out architecture to distributehugo computational processing of data across multiple nodes. Compute is separate from storage, which enables you to scale compute independently of the data in your system.</description>
+    </item>
+    
+    <item>
+      <title>Evaluate Project Team</title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/project/evaluate-project-team/</link>
+      <pubDate>Thu, 10 Jun 2021 18:49:33 +0100</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/project/evaluate-project-team/</guid>
+      <description>Sample https://docs.microsoft.com/en-us/learn/modules/explore-roles-responsibilities-world-of-data/
+Certifications https://docs.microsoft.com/en-us/learn/certifications/browse/?products=azure
+Evaluate Project Team Readiness
+What are the roles and skillsets required for a successful implementation using Azure Synapse Analytics?
+  Synapse Administrator
+  Synapse Database Administrator
+  Synapse Data Engineer
+  Synapse Data Analyst
+  Synapse Data Scientist
+  Azure Administrator
+  Azure Security Engineer
+  Azure DevOps Engineer
+  Synapse Administrator
+A Synapse Administrator is responsible for the administration of the overall Azure Synapse environment.</description>
+    </item>
+    
+    <item>
+      <title>Evaluate Project Plan</title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/project/evaluate-project-plan/</link>
+      <pubDate>Thu, 10 Jun 2021 18:49:23 +0100</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/project/evaluate-project-plan/</guid>
+      <description>In the project’s lifecycle, the most important and extensive planning is performed before implementation. This article will provide a high level QUICK review of the project plan to make sure it contains critical artifacts and information for a successful project.
+Below is the checklist of items that must be defined and approved before the project is initiated.
+The Project Plan
+  Core Resource Team – core group of key people, each of whom offers expertise crucial to the project.</description>
+    </item>
+    
+  </channel>
+</rss>
