@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pools on Success by Design</title>
+    <link>https://azure.github.io/Synapse-Success-By-Design/pools/</link>
+    <description>Recent content in Pools on Success by Design</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Jun 2021 18:50:27 +0100</lastBuildDate><atom:link href="https://azure.github.io/Synapse-Success-By-Design/pools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spark Pools</title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/pools/spark-pools/</link>
+      <pubDate>Thu, 10 Jun 2021 18:50:27 +0100</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/pools/spark-pools/</guid>
+      <description>SBD – Spark Pool Design Evaluation #  Apache Spark in Synapse brings the Apache Spark parallel data processing to the Azure Synapse.
+Fit Gap Analysis #  When planning to implement Spark pools with Azure Synapse, you first need to ensure Apache Spark Pools in Azure Synapse is the best fit for your workload. These are the items to consider for utilizing Apache Spark in Synapse:
+  Does your workload require data engineering/data preparation?</description>
+    </item>
+    
+    <item>
+      <title>Provisioned Sql Pools</title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/pools/provisioned-sql-pools/</link>
+      <pubDate>Thu, 10 Jun 2021 18:50:10 +0100</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/pools/provisioned-sql-pools/</guid>
+      <description>SQL Provisioned Pool #  Azure Synapse Analytics is an analytics service that brings together enterprise data warehousing and Big Data analytics. Dedicated SQL pool (formerly SQL DW) refers to the enterprise data warehousing features that are available in Azure Synapse Analytics.
+Synapse SQL leverages a scale out architecture to distributehugo computational processing of data across multiple nodes. Compute is separate from storage, which enables you to scale compute independently of the data in your system.</description>
+    </item>
+    
+  </channel>
+</rss>
