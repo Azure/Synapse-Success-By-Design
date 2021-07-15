@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Assessment #  Overview #  This assessment exercise will provide you with the opportunity gather all the available information about the existing environment, environmental requirements, project requirements, constraints, timelines, pain points, etc. This information will be the basis of your later evaluations and checkpoint activities as it will be invaluable data to validate and compare against the project solution as it is being planned, designed, and developed. Take the time necessary to gather all this recommended information and have the necessary discussions with project stakeholders, business users, solution designers and subject matter experts (SME) of the existing solution and environment.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="Assessment #  Overview #  This assessment exercise will provide you with the opportunity gather all the available information about the existing environment, environmental requirements, project requirements, constraints, timelines, pain points, etc. This information will be the basis of your later evaluations and checkpoint activities as it will be invaluable data to validate and compare against the project solution as it is being planned, designed, and developed. Take the time necessary to gather all this recommended information and have the necessary discussions with project stakeholders, business users, solution designers and subject matter experts (SME) of the existing solution and environment." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/is_assessment/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Is Assessment | Success by Design</title>
+<link rel="manifest" href="/Synapse-Success-By-Design/manifest.json">
+<link rel="icon" href="/Synapse-Success-By-Design/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/Synapse-Success-By-Design/book.min.b41cdcc69680b20b305adc2d69f998108e387359ce0e8d2d5f091e788a5bb27c.css" integrity="sha256-tBzcxpaAsgswWtwtafmYEI44c1nODo0tXwkeeIpbsnw=" crossorigin="anonymous">
+  <script defer src="/Synapse-Success-By-Design/flexsearch.min.js"></script>
+  <script defer src="/Synapse-Success-By-Design/en.search.min.099ac10d9f01d17c0a11a9ad565bb3c0e22df7d418d68cad2698415cb4490835.js" integrity="sha256-CZrBDZ8B0XwKEamtVluzwOIt99QY1oytJphBXLRJCDU=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/Synapse-Success-By-Design/"><img src="/Synapse-Success-By-Design/images/azure-icon.png" alt="Logo" /><span>Success by Design</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/home/" class="">Home</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/" class="">Implementation Success</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/poc_sucess/" class="">POC Success</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/video_series/" class="">Video Series</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/whats-new/" class="">Whats New</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/tools-utilities/" class="">Tools Utilities</a>
+  
+
+          
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Synapse-Success-By-Design/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Is Assessment</strong>
+
+  <label for="toc-control">
+    
+    <img src="/Synapse-Success-By-Design/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sbd-logoimagessbd_implementationsuccesslogopng-assessment"><img src="../images/SBD_implementationsuccessLogo.png" alt="SBD Logo"> Assessment</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#workload-assessment">Workload Assessment</a>
+      <ul>
+        <li><a href="#environment">Environment</a></li>
+        <li><a href="#analytical-workload-personas">Analytical workload Personas</a></li>
+        <li><a href="#etlelt-transformation-and-orchestration">ETL\ELT, Transformation, and orchestration</a></li>
+        <li><a href="#network-and-security">Network and security</a></li>
+        <li><a href="#azure-environment">Azure Environment</a></li>
+        <li><a href="#data-consumption-and-other-tools-and-services">Data Consumption and other Tools and services</a></li>
+      </ul>
+    </li>
+    <li><a href="#assessment-by-synapse-analytics-services">Assessment by Synapse analytics Services</a>
+      <ul>
+        <li><a href="#additional-assessment-information-focused-on-synapse-sql">Additional Assessment information focused on Synapse SQL </a>
+          <ul>
+            <li><a href="#assessment-questions-to-help-determine-the-best-sql-pool-type-dedicated-or-serverless">Assessment questions to help determine the best SQL Pool Type (dedicated or serverless)</a></li>
+          </ul>
+        </li>
+        <li><a href="#additional-assessment-information-focused-on-dedicated-sql-pool">Additional Assessment information focused on dedicated SQL Pool</a></li>
+        <li><a href="#additional-assessment-information-focused-on-serverless-sql-pool">Additional Assessment information focused on serverless SQL Pool</a></li>
+        <li><a href="#additional-assessment-information-focused-on-spark-pool">Additional Assessment information focused on Spark Pool</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion"><strong>Conclusion</strong></a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="sbd-logoimagessbd_implementationsuccesslogopng-assessment">
+  <img src="../images/SBD_implementationsuccessLogo.png" alt="SBD Logo" /> Assessment
+  <a class="anchor" href="#sbd-logoimagessbd_implementationsuccesslogopng-assessment">#</a>
+</h1>
+<h1 id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
+</h1>
+<p>This assessment exercise will provide you with the opportunity gather
+all the available information about the existing environment,
+environmental requirements, project requirements, constraints,
+timelines, pain points, etc. This information will be the basis of your
+later evaluations and checkpoint activities as it will be invaluable
+data to validate and compare against the project solution as it is being
+planned, designed, and developed. Take the time necessary to gather all
+this recommended information and have the necessary discussions with
+project stakeholders, business users, solution designers and subject
+matter experts (SME) of the existing solution and environment. The
+information gathered here will help you in evaluating that the designed
+solution is implementing the right components of Azure Synapse Analytics
+to support your solution and meet overall expectations and honoring
+corporate requirements.</p>
+<h1 id="workload-assessment">
+  Workload Assessment
+  <a class="anchor" href="#workload-assessment">#</a>
+</h1>
+<h2 id="environment">
+  Environment
+  <a class="anchor" href="#environment">#</a>
+</h2>
+<ul>
+<li>
+<p>Describe your existing analytical workload:</p>
+<ul>
+<li>
+<p>Type of workload (Datawarehouse, bigdata etc.)?</p>
+</li>
+<li>
+<p>How is this workload helping the business? What are the Use case
+scenarios?</p>
+</li>
+<li>
+<p>What is the business driver for this analytical platform and for
+potential migration?</p>
+</li>
+<li>
+<p>Gather the details behind existing architecture, design, and
+implementation choices?</p>
+</li>
+<li>
+<p>Gather details about all existing upstream and downstream
+dependent components and consumers?</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Are you migrating existing data warehouse(s) (Netezza, Snowflake,
+Teradata, APS, SQL Server)?</p>
+</li>
+<li>
+<p>Are you migrating a Big Data platform (Cloudera, Hortonworks etc.)?</p>
+</li>
+<li>
+<p>Gather the architecture and dataflow diagram(s) for current
+analytical environment?</p>
+</li>
+<li>
+<p>Where are the data sources for your planned analytical workloads
+located (Azure, Other cloud providers, On-Premises)?</p>
+</li>
+<li>
+<p>Total size of dataset(s) (Historical and Incremental) being targeted
+to Azure. What is the current rate of growth of your dataset(s)?
+What is the projected rate of growth of your dataset(s) for the next
+2-5 years?</p>
+</li>
+<li>
+<p>Do you have an existing Data Lake? Gather as much detail as
+possible - file types (Parquet, csv etc.), sizes, security
+configuration, etc.?</p>
+</li>
+<li>
+<p>Do you have semi-structured, unstructured data to process and
+analyze?</p>
+</li>
+<li>
+<p>Describe the nature of the data processing (Batch, real time
+processing)?</p>
+</li>
+<li>
+<p>Do you need interactive data exploration from relational data, data
+lake and other sources?</p>
+</li>
+<li>
+<p>Do you need real time data analysis and exploration from operational
+data sources?</p>
+</li>
+<li>
+<p>What are pain points and limitations in current environment?</p>
+</li>
+<li>
+<p>What source control and Dev ops tool(s) are you using today?</p>
+</li>
+<li>
+<p>Do you have a use case to build a hybrid (Cloud and on-prem)
+analytical solution, Cloud only or multi- cloud?</p>
+</li>
+<li>
+<p>Gather data on existing cloud environment &ndash; single-cloud provider
+or multi-cloud provider.</p>
+</li>
+<li>
+<p>Gather plans on future cloud environment &ndash; single cloud or multi
+cloud provider.</p>
+</li>
+<li>
+<p>What are the RPO/RTO/HA/SLA requirements in the existing
+environment?</p>
+</li>
+<li>
+<p>What are the RPO/RTO/HA/SLA requirements in the planned environment?</p>
+</li>
+</ul>
+<h2 id="analytical-workload-personas">
+  Analytical workload Personas
+  <a class="anchor" href="#analytical-workload-personas">#</a>
+</h2>
+<ul>
+<li>
+<p>Who are the different data personas (Data Scientist, Data Engineer,
+Data Analyst etc.)?</p>
+</li>
+<li>
+<p>Describe the access control requirement on analytical platform for
+these personas.</p>
+</li>
+<li>
+<p>Identify the platform owners who is responsible to provision compute
+and grant access.</p>
+</li>
+<li>
+<p>Describe how different data personas are collaborating today?</p>
+</li>
+<li>
+<p>Do you have multiple teams collaborating\sharing the same
+analytical platform? What is the access control\isolation
+requirements for each of these teams/data sets?</p>
+</li>
+<li>
+<p>What are different client tools end user use to interact with
+Analytical platform?</p>
+</li>
+</ul>
+<h2 id="etlelt-transformation-and-orchestration">
+  ETL\ELT, Transformation, and orchestration
+  <a class="anchor" href="#etlelt-transformation-and-orchestration">#</a>
+</h2>
+<ul>
+<li>
+<p>What tools are you using today for data ingestion, ETL/ELT?</p>
+</li>
+<li>
+<p>Where do these tools exist in the existing environment (On prem,
+Cloud)?</p>
+</li>
+<li>
+<p>What is your current data load/update requirements (real-time/micro
+batch/hourly/daily/weekly/monthly)?</p>
+</li>
+<li>
+<p>Describe the transformation requirements for each layer (Bigdata
+[data lake], Datawarehouse etc.)?</p>
+</li>
+<li>
+<p>What is the current programming approach(es) to transforming the
+data (No code, low code, programming like SQL, Python, Scala, C#,
+etc.)?</p>
+</li>
+<li>
+<p>What is the preferred planned programming approach to transform the
+data (No code, low code, programming like SQL, Python, Scala, C#,
+etc.)?</p>
+</li>
+<li>
+<p>What tools are currently in use for data orchestration to automate
+the data driven process?</p>
+</li>
+<li>
+<p>Where are the data sources for your existing ETL located (Azure,
+Other cloud provider, On-Premises)?</p>
+</li>
+<li>
+<p>What are the existing data consumptions tools (Reporting, BI tools,
+open-source tools) that require integration with analytical
+platform?</p>
+</li>
+<li>
+<p>What are the planned data consumptions tools (Reporting, BI tools,
+open-source tools) that will require integration with analytical
+platform?</p>
+</li>
+</ul>
+<h2 id="network-and-security">
+  Network and security
+  <a class="anchor" href="#network-and-security">#</a>
+</h2>
+<ul>
+<li>
+<p>What regulatory requirements do you have for your data?</p>
+</li>
+<li>
+<p>If your data contains PII\PCI\HIPPA data, has your security group
+certified Azure for this data? If so, which services in Azure?</p>
+</li>
+<li>
+<p>Describe your user authorization and authentication requirements?</p>
+</li>
+<li>
+<p>Are there security issues which could limit the access to data
+during implementation?</p>
+</li>
+<li>
+<p>Is there test data available to be used during implementation
+development and testing?</p>
+</li>
+<li>
+<p>Describe the organizational network security requirements on the
+Analytical compute and storage (Private network, public network,
+firewall restriction etc.)?</p>
+</li>
+<li>
+<p>Describe the network security requirements for client tools to
+access analytical compute and storage? (Through peered network,
+private end point etc.)</p>
+</li>
+<li>
+<p>Describe the current network setup between on prem and Azure
+(Express route, site to site etc.)?</p>
+</li>
+<li>
+<p>Use below checklists and add\modify as per your needs:</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Data Protection</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>Data in Transit</p>
+</li>
+<li>
+<p>Data Encryption at Rest (Service &amp; BYOK)</p>
+</li>
+<li>
+<p>Data Discovery and Classification</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Access Control</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>Object Level Security</p>
+</li>
+<li>
+<p>Row Level Security</p>
+</li>
+<li>
+<p>Column Level Security</p>
+</li>
+<li>
+<p>Dynamic Data Masking</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Authentication</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>SQL Login</p>
+</li>
+<li>
+<p>Azure Active Directory</p>
+</li>
+<li>
+<p>Multi-Factor Authentication</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Network Security</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>Virtual Networks</p>
+</li>
+<li>
+<p>Firewall</p>
+</li>
+<li>
+<p>Azure ExpressRoute</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Threat Protection</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>Thread Detection</p>
+</li>
+<li>
+<p>Auditing</p>
+</li>
+<li>
+<p>Vulnerability Assessment</p>
+</li>
+</ul>
+<h2 id="azure-environment">
+  Azure Environment
+  <a class="anchor" href="#azure-environment">#</a>
+</h2>
+<ul>
+<li>
+<p>Are you currently using Azure? For Production?</p>
+</li>
+<li>
+<p>If you are using Azure, which services are you using?</p>
+</li>
+<li>
+<p>If you are using Azure, which regions are you using?</p>
+</li>
+<li>
+<p>Do you have an Express Route in place? What is its bandwidth?</p>
+</li>
+<li>
+<p>Do you have budget approval to provision required services in Azure?</p>
+</li>
+<li>
+<p>How do you provision and manage resource today? (ARM, Terraform...)</p>
+</li>
+<li>
+<p>Is your key team familiar with Synapse analytics.? Any training
+required?</p>
+</li>
+</ul>
+<h2 id="data-consumption-and-other-tools-and-services">
+  Data Consumption and other Tools and services
+  <a class="anchor" href="#data-consumption-and-other-tools-and-services">#</a>
+</h2>
+<ul>
+<li>
+<p>Describe how and what tools you currently use to perform activities
+like ingest, explore, prepare, and visualize the data. Identify what
+tools you plan to use to perform activities like ingest, explore,
+prepare, and visualize the data.</p>
+</li>
+<li>
+<p>What applications planned to interact with analytical platform.?
+(Ex: Tools like PBI, Qlik, etc.).</p>
+</li>
+<li>
+<p>Identify all data consumers</p>
+</li>
+<li>
+<p>Identify data exports and data sharing scenarios</p>
+</li>
+</ul>
+<h1 id="assessment-by-synapse-analytics-services">
+  Assessment by Synapse analytics Services
+  <a class="anchor" href="#assessment-by-synapse-analytics-services">#</a>
+</h1>
+<p>This section covers assessment aligned with services within Azure
+Synapse analytics. Synapse has the following components for compute and
+data movement:</p>
+<p><strong>Synapse SQL</strong></p>
+<p>Synapse SQL is a distributed query system for T-SQL that enables data
+warehousing and data virtualization scenarios and extends T-SQL to
+address streaming and machine learning scenarios.</p>
+<p>Synapse SQL offers both <strong>serverless</strong> and <strong>dedicated</strong> resource
+models.</p>
+<p><strong>Serverless SQL Pool</strong></p>
+<p>Serverless SQL pool is a distributed data processing system, built for
+large-scale data, and computational functions. There&rsquo;s no infrastructure
+to setup or clusters to maintain. Best for unplanned or burst workloads,
+use the always available, serverless SQL endpoint. The recommended
+scenarios include quick data exploration on files directly on Data Lake,
+Logical date warehouse, Data Transformation of raw data.</p>
+<p><strong>Dedicated SQL Pool</strong></p>
+<p>Represents a collection of analytic resources that are provisioned when
+using Synapse SQL. The size of a dedicated SQL pool (formerly SQL DW) is
+determined by Data Warehousing Units (DWU).  For a full management
+capability of a data warehouse with predictable and high performance for
+continuous workloads, create dedicated SQL pools to reserve processing
+power for data stored in SQL tables. </p>
+<p><strong>Apache Spark</strong></p>
+<p>Apache Spark for Azure Synapse deeply and seamlessly integrates Apache
+Spark--the most popular open-source big data engine used for data
+preparation, data engineering, ETL, and machine learning.</p>
+<p><strong>Data Integration Pipelines</strong></p>
+<p>Azure Synapse contains the same Data Integration engine and experiences
+as Azure Data Factory, allowing you to create rich at-scale ETL
+pipelines without leaving Azure Synapse Analytics.</p>
+<h2 id="additional-assessment-information-focused-on-synapse-sql">
+  Additional Assessment information focused on Synapse SQL 
+  <a class="anchor" href="#additional-assessment-information-focused-on-synapse-sql">#</a>
+</h2>
+<h3 id="assessment-questions-to-help-determine-the-best-sql-pool-type-dedicated-or-serverless">
+  Assessment questions to help determine the best SQL Pool Type (dedicated or serverless)
+  <a class="anchor" href="#assessment-questions-to-help-determine-the-best-sql-pool-type-dedicated-or-serverless">#</a>
+</h3>
+<ul>
+<li>
+<p>Do you want to build a traditional relational data warehouse by
+reserving processing power for data stored in SQL tables?</p>
+</li>
+<li>
+<p>Do use cases demand predictable performance?</p>
+</li>
+<li>
+<p>Do you want to a build logical warehouse on top of a Data Lake?</p>
+</li>
+<li>
+<p>Do you want to query data directly from a data lake?</p>
+</li>
+<li>
+<p>Do you want to explore data from?</p>
+</li>
+</ul>
+<p><img src="../images/AssessmentPicture1.png" alt="AssessmentPicture1" /></p>
+<h2 id="additional-assessment-information-focused-on-dedicated-sql-pool">
+  Additional Assessment information focused on dedicated SQL Pool
+  <a class="anchor" href="#additional-assessment-information-focused-on-dedicated-sql-pool">#</a>
+</h2>
+<p>Platform</p>
+<ul>
+<li>
+<p>What is the current DW platform (SQL Server, Netezza, Teradata,
+Greenplum, greenfield, etc.)?</p>
+</li>
+<li>
+<p>If this is migration workload, provide make and Model of your
+Appliance for each Environment? (CPUs, GPUs, memory).</p>
+</li>
+<li>
+<p>If this is appliance migration, when was the Hardware Purchased?</p>
+</li>
+<li>
+<p>If this is appliance migration, Has the appliance been depreciated
+100%? If not, when will depreciation end? Now how much Capex is
+still left.</p>
+</li>
+<li>
+<p>Any a Hardware/Network Architecture diagram...?</p>
+</li>
+<li>
+<p>Where are the data sources for your planned Azure Data Warehouse
+located (Azure, Other cloud provider, On-Premises)?</p>
+</li>
+<li>
+<p>What are the data hosting platforms of the data sources for your
+data warehouse - (DB2, Oracle, SQL Server, Azure SQL, Azure Blob
+storage, AWS, Hadoop, etc.)?</p>
+</li>
+<li>
+<p>Are any of the data sources data warehouses? Which ones?</p>
+</li>
+<li>
+<p>Identify all ETL/ELT/Data Loading scenarios - Batch windows,
+streaming, near real-time. Identify existing SLAs for each and
+document the expected SLAs in the new environment.</p>
+</li>
+<li>
+<p>What is the current data warehouse sizes?</p>
+</li>
+<li>
+<p>Rate of growth of dataset being targeted for Synapse Dedicated sql
+pool.</p>
+</li>
+<li>
+<p>Describe the environments you are using today (Dev/QA/Prod/DR).</p>
+</li>
+<li>
+<p>Which tools are currently in place for data movement (SSIS,
+Robocopy, Informatica, SFTP, ADF)?</p>
+</li>
+<li>
+<p>Are you planning on loading Realtime or near-real time data?</p>
+</li>
+</ul>
+<p>Database(s)</p>
+<ul>
+<li>
+<p>Number of objects in each data warehouse - schemas, tables, views,
+stored procedures, functions. Overall complexity &ndash; Star or
+snowflake or other data structure.</p>
+</li>
+<li>
+<p>Largest tables in terms of size\number of records?</p>
+</li>
+<li>
+<p>Widest table in terms of number of columns?</p>
+</li>
+<li>
+<p>Is there already a data model designed for your data warehouse? Is
+it a Kimball, Inmon or Star Schema design?</p>
+</li>
+<li>
+<p>Are Slowly Changing Dimensions (SCD) in use? If so, which types
+(SCDI, SCDII, etc.).</p>
+</li>
+<li>
+<p>Will a Semantic Layer be implemented using Relational Data Marts or
+Analysis Services (Tabular/Multi-Dimensional) or another
+product/technique?</p>
+</li>
+<li>
+<p>What is the HA/RPO/RTO/Data archiving requirements?</p>
+</li>
+<li>
+<p>What is the region replication requirement?</p>
+</li>
+</ul>
+<p>Workload Characteristics</p>
+<ul>
+<li>
+<p>What is the estimated number of concurrent users/jobs accessing the
+data warehouse during peak hours?</p>
+</li>
+<li>
+<p>What is the estimated number of concurrent users/jobs accessing the
+data warehouse during off peak hours (normal hours)?</p>
+</li>
+<li>
+<p>Are there a period where there will be zero users or jobs?</p>
+</li>
+<li>
+<p>What are your query execution performance expectations for
+interactive queries?</p>
+</li>
+<li>
+<p>What are your data load performance expectations for
+daily/weekly/monthly data loads/updates? (ELT/ETL loading)</p>
+</li>
+<li>
+<p>What are your query execution expectations for reporting/analytical
+queries?</p>
+</li>
+<li>
+<p>How complex will be the most the commonly executed queries?</p>
+</li>
+<li>
+<p>What percentage of your total dataset size is your Active dataset?</p>
+</li>
+<li>
+<p>Approximately what percentage of the workload is anticipated for
+loading/updating, batch processing/reporting, interactive query, and
+analytical processing?</p>
+</li>
+<li>
+<p>Identify the data consuming pattern and platforms:</p>
+<ul>
+<li>
+<p>Current and planned reporting method and tools.</p>
+</li>
+<li>
+<p>Which application/analytical tools will be accessing the data
+warehouse?</p>
+</li>
+<li>
+<p>Number of concurrent queries?</p>
+</li>
+<li>
+<p>Average number of active queries at any point?</p>
+</li>
+<li>
+<p>Nature of data access (Interactive, ad hoc, exports etc.)</p>
+</li>
+<li>
+<p>Data personas and complete description of their interaction with
+the data.</p>
+</li>
+<li>
+<p>Maximum number of concurrent connections</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Query Performance SLA pattern by:</p>
+<ul>
+<li>
+<p>dashboard users</p>
+</li>
+<li>
+<p>batch reporting</p>
+</li>
+<li>
+<p>data mining users</p>
+</li>
+<li>
+<p>ETL process</p>
+</li>
+</ul>
+</li>
+<li>
+<p>What are the security requirements for the existing environment and
+for the new environment (row level security, column security
+requirements, access control, encryption etc.)?</p>
+</li>
+<li>
+<p>Do you have use cases to integrate Machine learning model scoring
+with SQL?</p>
+</li>
+</ul>
+<h2 id="additional-assessment-information-focused-on-serverless-sql-pool">
+  Additional Assessment information focused on serverless SQL Pool
+  <a class="anchor" href="#additional-assessment-information-focused-on-serverless-sql-pool">#</a>
+</h2>
+<ul>
+<li>
+<p>Do you have use cases to discover and explore data from a Data Lake
+using familiar T-SQL?</p>
+</li>
+<li>
+<p>Do you have use cases to build a logical warehouse on top of a data
+lake?</p>
+</li>
+<li>
+<p>Identify if there are use cases to transform data in Data Lake
+without moving data out from Data Lake.</p>
+</li>
+<li>
+<p>Is your data already in Azure Data Lake Storage or Azure Blob
+storage?</p>
+</li>
+<li>
+<p>If data is already in Azure Data Lake Storage, do you have good
+partition strategy in the data lake?</p>
+</li>
+<li>
+<p>Do you have operational data in Cosmos dB? Do you have use cases for
+Realtime analytics on Cosmos Db without impacting transactions?</p>
+</li>
+<li>
+<p>Identify the file types in the Data Lake.</p>
+</li>
+<li>
+<p>Identify the query performance SLA. Does your use case demand
+predictable performance and cost?</p>
+</li>
+<li>
+<p>Do you have unplanned or bursty SQL analytical workloads?</p>
+</li>
+<li>
+<p>Identify the data consuming pattern and platforms:</p>
+<ul>
+<li>
+<p>Current and planned reporting method and tools.</p>
+</li>
+<li>
+<p>Which application/analytical tools will be accessing the
+Serverless sql pool?</p>
+</li>
+<li>
+<p>Number of active queries.?</p>
+</li>
+<li>
+<p>Nature of data access (Interactive, ad hoc, exports etc.)</p>
+</li>
+<li>
+<p>Data personas?</p>
+</li>
+<li>
+<p>Concurrent connections?</p>
+</li>
+<li>
+<p>Query complexity?</p>
+</li>
+</ul>
+</li>
+<li>
+<p>What are the security requirements (Access control, encryption
+etc.)?</p>
+</li>
+<li>
+<p>What is the required T-SQL functionality (Stored proc, function
+etc.)?</p>
+</li>
+<li>
+<p>Identify number of queries hitting the Serverless SQL pool and
+result set size from each query.</p>
+</li>
+</ul>
+<p>Synapse Serverless SQL Pool has three major use cases:</p>
+<ul>
+<li>
+<p><strong>Basic discovery and exploration</strong> - Quickly reason about the data
+in various formats (Parquet, CSV, JSON) in your data lake, so you
+can plan how to extract insights from it.</p>
+</li>
+<li>
+<p><strong>Logical data warehouse</strong> &ndash; Provide a relational abstraction on
+top of raw or disparate data without relocating and transforming
+data, allowing always up-to-date view of your data.</p>
+</li>
+<li>
+<p><strong>Data transformation</strong> - Simple, scalable, and performant way to
+transform data in the lake using T-SQL, so it can be fed to BI and
+other tools or loaded into a relational data store (Synapse SQL
+databases, Azure SQL Database, etc.).</p>
+</li>
+</ul>
+<p>For complete guide on Synapse Serverless Sql Pool follow below learning
+path:</p>
+<p>[Build data analytics solutions using Azure Synapse serverless SQL pools</p>
+<ul>
+<li>Learn | Microsoft
+Docs](<a href="https://docs.microsoft.com/en-us/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/">https://docs.microsoft.com/en-us/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/</a>)</li>
+</ul>
+<blockquote>
+<p> </p>
+</blockquote>
+<p>Different professional roles can benefit from serverless SQL pool:</p>
+<ul>
+<li>
+<p><strong>Data Engineers</strong> can explore the lake, transform, and prepare data
+using this service, and simplify their data transformation
+pipelines. For more information, check
+this <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/tutorial-data-analyst">tutorial</a>.</p>
+</li>
+<li>
+<p><strong>Data Scientists</strong> can quickly reason about the contents and
+structure of the data in the lake, thanks to features such as
+OPENROWSET and automatic schema inference.</p>
+</li>
+<li>
+<p><strong>Data Analysts</strong> can <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-storage-files-spark-tables">explore data and Spark external
+tables</a> created
+by Data Scientists or Data Engineers using familiar T-SQL language
+or their favorite tools, which can connect to serverless SQL pool.</p>
+</li>
+<li>
+<p><strong>BI Professionals</strong> can quickly <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/tutorial-connect-power-bi-desktop">create Power BI reports on top of
+data in the
+lake</a> and
+Spark tables.</p>
+</li>
+</ul>
+<p>T-SQL Feature Comparison between SQL Pool Dedicated pool and Serverless
+Pool:</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/overview-features">T-SQL feature differences in Synapse SQL - Azure Synapse Analytics |
+Microsoft
+Docs</a></p>
+<h2 id="additional-assessment-information-focused-on-spark-pool">
+  Additional Assessment information focused on Spark Pool
+  <a class="anchor" href="#additional-assessment-information-focused-on-spark-pool">#</a>
+</h2>
+<ul>
+<li>
+<p>Identify the workloads that require data engineering and/or data
+preparation.</p>
+</li>
+<li>
+<p>Clearly define the types of transformations.</p>
+</li>
+<li>
+<p>Identify if you have unstructured data to process.</p>
+</li>
+<li>
+<p>If you are migrating from an existing Spark\Hadoop workload:</p>
+<ul>
+<li>
+<p>What is the existing big data platform (Cloudera, Hortonworks,
+Cloud services etc.)?</p>
+</li>
+<li>
+<p>If it is a migration from on-prem, has hardware\License been
+Expired or depreciated? If not, when will depreciation\License
+will end?</p>
+</li>
+<li>
+<p>Existing cluster type, Client tools?</p>
+</li>
+<li>
+<p>Required Libraries, Spark versions?</p>
+</li>
+<li>
+<p>Is it a Hadoop migration to Spark?</p>
+</li>
+<li>
+<p>Current\preferred programming languages.</p>
+</li>
+<li>
+<p>Type of workload (Big data, ML, etc.)?</p>
+</li>
+<li>
+<p>Existing and planned client tools (IDE&rsquo;s) and reporting
+platforms?</p>
+</li>
+<li>
+<p>Security requirements?</p>
+</li>
+<li>
+<p>Current pain points and limitations?</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Do you plan to use or are currently using Delta Lake?</p>
+</li>
+<li>
+<p>How do you manage package today?</p>
+</li>
+<li>
+<p>Identify the required compute cluster types?</p>
+</li>
+<li>
+<p>Identify if cluster customization is required?</p>
+</li>
+</ul>
+<p>Spark pools in Azure Synapse Analytics enable the following key
+scenarios:</p>
+<ul>
+<li>
+<p><strong>Data Engineering/Data Preparation -</strong> Apache Spark includes many
+language features to support preparation and processing of large
+volumes of data so that it can be made more valuable and then
+consumed by other services within Azure Synapse Analytics. This is
+enabled through multiple languages (C#, Scala, PySpark, Spark SQL)
+and supplied libraries for processing and connectivity.</p>
+</li>
+<li>
+<p><strong>Machine Learning -</strong> Apache Spark comes
+with <a href="https://spark.apache.org/mllib/">MLlib</a>, a machine learning
+library built on top of Spark that you can use from a Spark pool
+in Azure Synapse Analytics. Spark pools in Azure Synapse Analytics
+also include Anaconda, a Python distribution with a variety of
+packages for data science including machine learning. In addition,
+Apache Spark on Synapse provides pre-installed libraries for
+<a href="https://mmlspark.blob.core.windows.net/website/index.htmlhttps://mmlspark.blob.core.windows.net/website/index.html">Microsoft Machine
+Learning</a>,
+MML, a fault-tolerant, elastic, and RESTful machine learning
+framework. When combined with built-in support for notebooks, you
+have an environment for creating machine learning applications.</p>
+</li>
+</ul>
+<p>To get started with Synapse spark refer below guided learning:</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-overview#where-do-i-start">What is Apache Spark - Azure Synapse Analytics | Microsoft
+Docs</a></p>
+<p><a href="https://docs.microsoft.com/en-us/learn/paths/perform-data-engineering-with-azure-synapse-apache-spark-pools/">Perform data engineering with Azure Synapse Apache Spark Pools - Learn
+| Microsoft
+Docs</a></p>
+<p>Azure Spark supports Delta Lake, for complete guide follow the below
+guide:</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-delta-lake-overview?pivots=programming-language-python">Overview of how to use Linux Foundation Delta Lake in Apache Spark for
+Azure Synapse Analytics - Azure Synapse Analytics | Microsoft
+Docs</a></p>
+<h1 id="conclusion">
+  <strong>Conclusion</strong>
+  <a class="anchor" href="#conclusion">#</a>
+</h1>
+<p>An effective assessment will help you to understand the existing
+analytical environment with current data analytical use cases and the
+planned analytical environment including future data analytics
+requirements.</p>
+<p>This assessment is a guide help evaluate the solution design and make
+informed technology recommendations for the best services to implement
+within the Azure Synapse.</p>
+<p>By the end of the assessment, you should have clear view of the existing
+platform, Analytical use cases, pain points and expectations for the new
+platform.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        <hr />
+Azure Synapse &copy;2021 <br />
+Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Synapse homepage</a> or read our <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started">getting started guide</a> or the 
+<a href="https://techcommunity.microsoft.com/t5/azure-synapse-analytics/bg-p/AzureSynapseAnalyticsBlog">Azure Synapse Blog</a>. <br />
+Contact us: <a href="mailto:synapsefeedback@microsoft.com?subject=AzureSynapse.com%20Feedback">synapsefeedback@microsoft.com</a>.<br />
+Generated on Thu, Jul 15 2021 14:16:28 UTC
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sbd-logoimagessbd_implementationsuccesslogopng-assessment"><img src="../images/SBD_implementationsuccessLogo.png" alt="SBD Logo"> Assessment</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#workload-assessment">Workload Assessment</a>
+      <ul>
+        <li><a href="#environment">Environment</a></li>
+        <li><a href="#analytical-workload-personas">Analytical workload Personas</a></li>
+        <li><a href="#etlelt-transformation-and-orchestration">ETL\ELT, Transformation, and orchestration</a></li>
+        <li><a href="#network-and-security">Network and security</a></li>
+        <li><a href="#azure-environment">Azure Environment</a></li>
+        <li><a href="#data-consumption-and-other-tools-and-services">Data Consumption and other Tools and services</a></li>
+      </ul>
+    </li>
+    <li><a href="#assessment-by-synapse-analytics-services">Assessment by Synapse analytics Services</a>
+      <ul>
+        <li><a href="#additional-assessment-information-focused-on-synapse-sql">Additional Assessment information focused on Synapse SQL </a>
+          <ul>
+            <li><a href="#assessment-questions-to-help-determine-the-best-sql-pool-type-dedicated-or-serverless">Assessment questions to help determine the best SQL Pool Type (dedicated or serverless)</a></li>
+          </ul>
+        </li>
+        <li><a href="#additional-assessment-information-focused-on-dedicated-sql-pool">Additional Assessment information focused on dedicated SQL Pool</a></li>
+        <li><a href="#additional-assessment-information-focused-on-serverless-sql-pool">Additional Assessment information focused on serverless SQL Pool</a></li>
+        <li><a href="#additional-assessment-information-focused-on-spark-pool">Additional Assessment information focused on Spark Pool</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion"><strong>Conclusion</strong></a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+<script>
+    $('a[href^="http://"], a[href^="https://"]').not('a[href*="'+location.hostname+'"]').attr('target','_blank');
+</script>
+
+<script type="text/javascript">
+    !function(T,l,y){var S=T.location,u="script",k="instrumentationKey",D="ingestionendpoint",C="disableExceptionTracking",E="ai.device.",I="toLowerCase",b="crossOrigin",w="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"4",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[I](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,p,l,u;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][I]()]=i[1])}if(!e[D]){var r=e.endpointsuffix,o=r?e.location:null;e[D]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[k]||d[k]||"",p=s[D],l=p?p+"/v2/track":config.endpointUrl,(u=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=l,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),u.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,l)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:w,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(w,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(u,l))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(u);n.src=h;var e=y[b];return!e&&""!==e||"undefined"==n[b]||(n[b]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(u)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[C]&&!0!==s[C]){method="onerror",t(["_"+method]);var c=T[method];T[method]=function(e,t,n,a,i){var r=c&&c(e,t,n,a,i);return!0!==r&&m["_"+method]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);(T[t]=n).queue&&0===n.queue.length&&n.trackPageView({})}(window,document,{
+    src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js", 
+    
+    
+    
+    
+    cfg: { 
+        instrumentationKey: "0600b273-5440-42cc-9fe4-51924c721ce0"
+         
+    }});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

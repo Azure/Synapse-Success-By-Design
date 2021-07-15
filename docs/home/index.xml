@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home2 on Success by Design</title>
+    <link>https://azure.github.io/Synapse-Success-By-Design/</link>
+    <description>Recent content in Home2 on Success by Design</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://azure.github.io/Synapse-Success-By-Design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/is_placeholder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/is_placeholder/</guid>
+      <description>#  Coming Soon #  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/is_underconstruction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/is_underconstruction/</guid>
+      <description>#  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/post-golive/is_monitoringreview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/post-golive/is_monitoringreview/</guid>
+      <description>Monitoring Review #  Monitoring is a key part of the operationalising of any Azure Solution. Below is some guidance on reviewing and configuring the monitoring of your Azure Synapse environment. Key to this activity will be the identification of what needs to be monitored and who needs to be able to review the results of active monitoring. Using your solution requirements and other data collected during the assessment and during solution development, build a list of important behaviors and activities that need to be monitored in your live environment.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/pre-golive/is_continueddevpreparednessreview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/pre-golive/is_continueddevpreparednessreview/</guid>
+      <description>#   Coming Soon Continued Dev Preparedness Review #  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/pre-golive/is_operationalreadinessreview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/pre-golive/is_operationalreadinessreview/</guid>
+      <description>Operational Readiness Review #  Overview #  Once you build a Synapse Analytics solution and it is ready to deploy, it is important to ensure the operational readiness of that solution. Performing an Operational Readiness Review helps evaluate the solution for its preparedness to provide optimal services to its users. Organizations that invest time and resources in assessing the operational readiness of their solutions before launch have a much higher rate of satisfaction than those who don&amp;rsquo;t.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/pre-golive/is_userreadinessandonboardingplanreview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/pre-golive/is_userreadinessandonboardingplanreview/</guid>
+      <description>User Readiness and Onboarding #  Overview #  We certainly do our best to make our sophisticated cloud services simple and easy to maintain, operate and use. Authoring detailed documentation, training technical personnel, service/platform administrators and developers, etc. on how to use the system is just part of what needs to be done. We must extend this effort and make sure the end users of your solution understand it, are able to see how it fits their needs and how it can bring value.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/is_assessment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/is_assessment/</guid>
+      <description>Assessment #  Overview #  This assessment exercise will provide you with the opportunity gather all the available information about the existing environment, environmental requirements, project requirements, constraints, timelines, pain points, etc. This information will be the basis of your later evaluations and checkpoint activities as it will be invaluable data to validate and compare against the project solution as it is being planned, designed, and developed. Take the time necessary to gather all this recommended information and have the necessary discussions with project stakeholders, business users, solution designers and subject matter experts (SME) of the existing solution and environment.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/is_referencearchitectures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/is_referencearchitectures/</guid>
+      <description>#   Coming Soon Reference Architectures #  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/project-plan-evaluation/is_evaluateprojectplanhighlevel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/project-plan-evaluation/is_evaluateprojectplanhighlevel/</guid>
+      <description>High-Level Project Plan Evaluation #  Overview #  In the project&amp;rsquo;s lifecycle, the most important and extensive planning is performed before implementation. This article will provide a high-level QUICK review of the project plan to make sure it contains critical artifacts and information for a successful project.
+Below is the checklist of items that must be defined and approved before the project is initiated.
+Following this high-level project plan review a more detailed review will be conducted focusing on the specific Azure Synapse components identified during the Assessment.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/project-plan-evaluation/is_solutiondevelopmentenvironmentdesignevaluation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/project-plan-evaluation/is_solutiondevelopmentenvironmentdesignevaluation/</guid>
+      <description>Solution Development Environment Design Review #  Overview #  Solution Development and the Environment within which this will be performed is key to your project&amp;rsquo;s success. Regardless of the project methodology selected (waterfall, Agile, scrum, etc.) multiple environments &amp;ndash; development &amp;ndash; test/User acceptance &amp;ndash; Production with clear processes for promoting changes between environments will be required.
+Setting up a modern data warehouse environment for both production and pre-production use can be complex.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_dataintegrationdesignevaluation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_dataintegrationdesignevaluation/</guid>
+      <description>Data Integration Design Evaluation #  Overview #  Azure Synapse Analytics is a complete analytics platform where business can choose one of three analytics runtimes (Apache Spark, Serverless SQL or Dedicated SQL Pool) for converting raw data into meaningful insights. It has a robust built-in data integration module called Synapse Pipeline for building effective, scalable and secured data pipelines.
+In this guide we will evaluate the design of the Data Integration components of your project.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_dedicatedsqlpooldesignevaluation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_dedicatedsqlpooldesignevaluation/</guid>
+      <description>Dedicated SQL Pool Design Evaluation #  Azure Synapse Analytics is an analytics service that brings together enterprise data warehousing and Big Data analytics. Dedicated SQL pool (formerly SQL DW) refers to the enterprise data warehousing features that are available in Azure Synapse Analytics.
+Synapse SQL leverages a scale out architecture to distribute computational processing of data across multiple nodes. Compute is separate from storage, which enables you to scale compute independently of the data in your system.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_serverlesssqlpooldesignevaluation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_serverlesssqlpooldesignevaluation/</guid>
+      <description>Serverless SQL Pool Design Evaluation #  Separation of storage and compute as a design principle for modern data and analytical platforms and services has been a trend and frequently used pattern since it provided cost savings and more flexibility in on-demand scaling of your storage and compute independently. Synapse SQL Serverless (Serverless SQL pool - Azure Synapse Analytics | Microsoft Docs) further extends this pattern and adds an important capability to query your data directly from your data lake storage and not to worry about compute management while leveraging self-service types of workload.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_sparkpooldesignevaluation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_sparkpooldesignevaluation/</guid>
+      <description>Spark Pool Design Evaluation #  Apache Spark in Synapse brings the Apache Spark parallel data processing to the Azure Synapse.
+Fit Gap Analysis #  When planning to implement Spark pools with Azure Synapse, you first need to ensure Apache Spark Pools in Azure Synapse is the best fit for your workload. These are the items to consider for utilizing Apache Spark in Synapse:
+  Does your workload require data engineering/data preparation?</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_workspacedesignevaluation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_workspacedesignevaluation/</guid>
+      <description>Workspace Design Evaluation #  Overview #  Synapse Workspace is a unified graphical user experience that stitches together your analytical and data processing engines, data lakes, databases, tables, datasets, and reporting artifacts along with code and process orchestration. Considering the number of technologies and services that are integrated into Synapse Workspace make sure that the key components are included in your design.
+Synapse Workspace(s) Design Review #  Identify if your solution design is built using one or more than one Synapse Workspace.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/team-skillset-evaluation/is_evaluateprojectteamreadiness/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/team-skillset-evaluation/is_evaluateprojectteamreadiness/</guid>
+      <description>Evaluate Project Team Readiness #  Overview #  Solution development will require a variety of resources possessing a variety of skills. It will be very important for the success of your solution that these resources have the necessary skills to successfully complete the tasks assigned. The following evaluation will take an honest and critical look at the skill level of your project resources and provide you with a list of roles that are commonly needed during the implementation of a solution incorporating Azure Synapse.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/solution-development/is_solutioncheckup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/solution-development/is_solutioncheckup/</guid>
+      <description>#   Coming Soon Solution Checkup #  </description>
+    </item>
+    
+  </channel>
+</rss>

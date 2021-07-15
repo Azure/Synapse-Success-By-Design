@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Data Integration Design Evaluation #  Overview #  Azure Synapse Analytics is a complete analytics platform where business can choose one of three analytics runtimes (Apache Spark, Serverless SQL or Dedicated SQL Pool) for converting raw data into meaningful insights. It has a robust built-in data integration module called Synapse Pipeline for building effective, scalable and secured data pipelines.
+In this guide we will evaluate the design of the Data Integration components of your project.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="Data Integration Design Evaluation #  Overview #  Azure Synapse Analytics is a complete analytics platform where business can choose one of three analytics runtimes (Apache Spark, Serverless SQL or Dedicated SQL Pool) for converting raw data into meaningful insights. It has a robust built-in data integration module called Synapse Pipeline for building effective, scalable and secured data pipelines.
+In this guide we will evaluate the design of the Data Integration components of your project." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_dataintegrationdesignevaluation/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Is Data Integration Design Evaluation | Success by Design</title>
+<link rel="manifest" href="/Synapse-Success-By-Design/manifest.json">
+<link rel="icon" href="/Synapse-Success-By-Design/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/Synapse-Success-By-Design/book.min.b41cdcc69680b20b305adc2d69f998108e387359ce0e8d2d5f091e788a5bb27c.css" integrity="sha256-tBzcxpaAsgswWtwtafmYEI44c1nODo0tXwkeeIpbsnw=" crossorigin="anonymous">
+  <script defer src="/Synapse-Success-By-Design/flexsearch.min.js"></script>
+  <script defer src="/Synapse-Success-By-Design/en.search.min.099ac10d9f01d17c0a11a9ad565bb3c0e22df7d418d68cad2698415cb4490835.js" integrity="sha256-CZrBDZ8B0XwKEamtVluzwOIt99QY1oytJphBXLRJCDU=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/Synapse-Success-By-Design/"><img src="/Synapse-Success-By-Design/images/azure-icon.png" alt="Logo" /><span>Success by Design</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/home/" class="">Home</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/" class="">Implementation Success</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/poc_sucess/" class="">POC Success</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/video_series/" class="">Video Series</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/whats-new/" class="">Whats New</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/tools-utilities/" class="">Tools Utilities</a>
+  
+
+          
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Synapse-Success-By-Design/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Is Data Integration Design Evaluation</strong>
+
+  <label for="toc-control">
+    
+    <img src="/Synapse-Success-By-Design/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sbd-logoimagessbd_implementationsuccesslogopng-data-integration-design-evaluation"><img src="../../images/SBD_implementationsuccessLogo.png" alt="SBD Logo"> Data Integration Design Evaluation</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#design-review">Design Review</a>
+      <ul>
+        <li><a href="#fit-gap-analysis">Fit-Gap Analysis</a></li>
+        <li><a href="#architecture-considerations">Architecture Considerations</a>
+          <ul>
+            <li><a href="#operational-excellence">Operational Excellence</a></li>
+            <li><a href="#performance-efficiency">Performance Efficiency</a></li>
+            <li><a href="#reliability">Reliability</a></li>
+            <li><a href="#security">Security</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="sbd-logoimagessbd_implementationsuccesslogopng-data-integration-design-evaluation">
+  <img src="../../images/SBD_implementationsuccessLogo.png" alt="SBD Logo" /> Data Integration Design Evaluation
+  <a class="anchor" href="#sbd-logoimagessbd_implementationsuccesslogopng-data-integration-design-evaluation">#</a>
+</h1>
+<h1 id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
+</h1>
+<p>Azure Synapse Analytics is a complete analytics platform where business
+can choose one of three analytics runtimes (Apache Spark, Serverless SQL
+or Dedicated SQL Pool) for converting raw data into meaningful insights.
+It has a robust built-in data integration module called <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is#built-in-data-integration">Synapse
+Pipeline</a>
+for building effective, scalable and secured data pipelines.</p>
+<p><img src="../../images/DataIntegrationDesignEvaluationPicture1.png" alt="Picture1" /></p>
+<p>In this guide we will evaluate the design of the Data Integration
+components of your project. Upon conclusion we will be able to determine
+if Synapse Pipelines are the best fit for your data integration use
+cases and we will have checked that all the key aspects of the design
+have been considered. Time invested in evaluating the design prior to
+solution development will help to eliminate unexpected design changes
+that may impact your project timeline or cost.</p>
+<h1 id="design-review">
+  Design Review
+  <a class="anchor" href="#design-review">#</a>
+</h1>
+<h2 id="fit-gap-analysis">
+  Fit-Gap Analysis
+  <a class="anchor" href="#fit-gap-analysis">#</a>
+</h2>
+<p>You need to do a thorough fit-gap analysis of the data integration
+strategy. If the design has chosen Synapse Pipelines as one of the data
+integration tools to be used in the solution, review the following
+points to make sure Synapse Pipeline is the best tool for data
+integrations and orchestration. Some of the key aspects identified below
+need to be assessed in your environment. If another data integration
+tool or tools have been specified in the solution design the following
+points should still be reviewed to validate that these key design points
+have been considered and the chosen tool will support you solution&rsquo;s
+needs. This information should have been captured during your assessment
+performed earlier in this method.</p>
+<ul>
+<li>
+<p>Review your data sources and destinations (targets)</p>
+<ul>
+<li>
+<p>Validate source and destination store are <a href="https://docs.microsoft.com/en-us/azure/data-factory/connector-overview">supported data
+stores</a></p>
+</li>
+<li>
+<p>If not supported, check if you can leverage the <a href="https://docs.microsoft.com/en-us/azure/data-factory/connector-overview#integrate-with-more-data-stores">extensible
+options</a>
+of pipeline</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Review the triggering points of your data integration and the
+frequency</p>
+<ul>
+<li>
+<p>Synapse pipeline supports schedule, tumbling window and storage
+event triggers</p>
+</li>
+<li>
+<p>Validate minimum recurrence interval and supported storage
+events against your requirement</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Review the modes of data integration required</p>
+<ul>
+<li>
+<p>Scheduled, periodic and triggered batch processing can be
+effectively designed in Synapse pipelines</p>
+</li>
+<li>
+<p>To support Change Data Capture capabilities, leverage third
+party products or create a custom solution</p>
+</li>
+<li>
+<p>To support real-time streaming, leverage Event Hub/Kafka/IoT Hub</p>
+</li>
+<li>
+<p>To support Lift-and-Shift of SSIS packages, leverage <a href="https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data
+Factory
+SSIS-IR</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Review the compute design. Does the compute required for the
+pipelines need to be serverless or provisioned?</p>
+<ul>
+<li>
+<p>Synapse pipeline supports both modes where integration runtime
+can be serverless or self-hosted on a windows machine</p>
+</li>
+<li>
+<p>Validate <a href="https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime#ports-and-firewalls">ports and
+firewall</a>
+and <a href="https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime#proxy-server-considerations">proxy
+setting</a>
+in case of self-hosted IR (provisioned)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Review the security requirements, networking, and firewall
+configuration of the environment and compare to the security,
+networking and firewall configuration design.</p>
+<ul>
+<li>
+<p>Review how the data sources are secured and networked</p>
+</li>
+<li>
+<p>Review how the target data stores are secured and networked</p>
+</li>
+<li>
+<p>Synapse pipeline has different <a href="https://docs.microsoft.com/en-us/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory">data
+access</a>
+strategies to provide a secured way to connect data stores via
+private endpoints/VNET/Firewall/Internet</p>
+</li>
+<li>
+<p>Use Azure key-vault to store credentials whenever applicable</p>
+</li>
+<li>
+<p>Leverage Azure Data factory for customer managed key (CMK)
+encryption or encryption credentials and store in self-hosted IR</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Review the design for ongoing monitoring of the data integration
+components</p>
+</li>
+</ul>
+<h2 id="architecture-considerations">
+  Architecture Considerations
+  <a class="anchor" href="#architecture-considerations">#</a>
+</h2>
+<p>As you review the data integration design consider the following
+recommendations and guidelines to ensure that the data integration
+components of your solution will provide ongoing operational excellence,
+performance efficiency, reliability and security .</p>
+<h3 id="operational-excellence">
+  Operational Excellence
+  <a class="anchor" href="#operational-excellence">#</a>
+</h3>
+<p><strong>Environment:</strong> When planning for environments, segregate it by
+dev/test, UAT, and Production. Having a clean and working lower
+environment (with working data connections and pipelines) makes
+development and support streamlined and smooth.<br>
+Leverage the Folder organizational options to organize your pipelines
+and datasets by business/ETL jobs for better maintainability. Use
+<a href="https://azure.microsoft.com/en-us/resources/videos/azure-friday-enhanced-monitoring-capabilities-and-tagsannotations-in-azure-data-factory/">Annotations</a>
+to tag your pipelines which later can be used in monitoring.<br>
+Leverage parameters and Iterations/Conditionals activities to create
+re-usable pipelines.</p>
+<p><strong>Monitoring and Alerting:</strong> Synapse workspace includes <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started-monitor">Monitor
+hub</a>
+which has rich monitoring information of each and every pipeline run. It
+also integrates with Log Analytics for further log analysis and
+alerting. These features should be implemented to provide proactive
+error notifications. Leverage &ldquo;Failure&rdquo; branch for implementing
+user-defined <a href="https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459">error
+handling.</a></p>
+<p><strong>Automated Deployment and Testing:</strong> Synapse pipeline is built into
+Synapse workspace, so you can take advantage of Workspace
+automation/deployment. Minimize manual activities while creating Synapse
+workspaces across environments by using <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-deployment-template-workspaces">ARM
+templates</a>.
+Integrate Synapse workspaces with Azure DevOps to build code versioning
+and automated publication.</p>
+<h3 id="performance-efficiency">
+  Performance Efficiency
+  <a class="anchor" href="#performance-efficiency">#</a>
+</h3>
+<p>There are multiple factors that impact performance of pipeline
+execution. Some of the key points are.</p>
+<ul>
+<li>
+<p>Follow <a href="https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-performance">performance
+guide</a>
+and <a href="https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-performance-features">optimization
+features</a>
+when working with the Copy activity</p>
+</li>
+<li>
+<p>Choose optimized connectors for data transfesr instead of generic
+ones. For example, PolyBase instead of bulk insert when moving data
+from ADLS Gen2 to Dedicated SQL pool</p>
+</li>
+<li>
+<p>When creating a new Azure IR, pick the region as <a href="https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime#azure-ir-location">Auto
+Resolve</a>
+or select the same region as the data stores</p>
+</li>
+<li>
+<p>For Self-hosted IR, choose the <a href="https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-performance-features#self-hosted-integration-runtime-scalability">Azure VM
+size</a>
+based on the integration requirements</p>
+</li>
+<li>
+<p>Choose a stable network connection like Azure ExpressRoute for fast
+and consistent bandwidth</p>
+</li>
+</ul>
+<h3 id="reliability">
+  Reliability
+  <a class="anchor" href="#reliability">#</a>
+</h3>
+<p><strong>Availability:</strong> When you are executing a pipeline using Azure IR, it
+is serverless in nature and provides resiliency out of the box. There is
+little for customers to manage. But when a pipeline is running in a
+self-hosted IR, it is recommended to run using a <a href="https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability">HA
+configuration</a>
+using Azure VMs. This will ensure integration pipelines are not broken
+even when a VM goes down. Secondly, it is recommended to have Azure
+ExpressRoute for a fast and reliable network connection between
+on-premises and Azure.</p>
+<h3 id="security">
+  Security
+  <a class="anchor" href="#security">#</a>
+</h3>
+<p>A secured data platform is one of the key requirements of every
+organization. A lot of thought needs to be given to overall security of
+the platform rather than individual components. Here are some security
+guidelines for Azure Synapse Pipeline solutions.</p>
+<ul>
+<li>
+<p>Secure data movement to cloud using <a href="https://techcommunity.microsoft.com/t5/azure-architecture-blog/understanding-azure-synapse-private-endpoints/ba-p/2281463">Azure Synapse private
+endpoints</a></p>
+</li>
+<li>
+<p>Use AAD/MSI for authentication and Azure RBAC and <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-synapse-rbac">Synapse
+RBAC</a>
+for authorization</p>
+</li>
+<li>
+<p>Store credentials, secrets and keys in Azure Key Vault rather than
+in pipeline
+(<a href="https://docs.microsoft.com/en-us/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities">link</a>)</p>
+</li>
+<li>
+<p>Integrate on-premises via Azure ExpressRoute or VPN over private
+endpoints.</p>
+</li>
+<li>
+<p>Enable Secure input/output in pipeline activities for parameters
+storing secrets/passwords</p>
+</li>
+</ul>
+<h1 id="conclusion">
+  Conclusion
+  <a class="anchor" href="#conclusion">#</a>
+</h1>
+<p>Upon completion of this review of the data integration design of your
+solution you should know if the data integration tool(s) selected for
+your implementation will meet all the requirements of your organization
+and you will have taken the time to consider and validate that many
+important guidelines and recommendations have been reviewed and applied
+to your data integration design. Prior to solution development is the
+best time to make design modifications to better meet your solution
+needs and will improve the overall success of your solution and your
+project.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        <hr />
+Azure Synapse &copy;2021 <br />
+Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Synapse homepage</a> or read our <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started">getting started guide</a> or the 
+<a href="https://techcommunity.microsoft.com/t5/azure-synapse-analytics/bg-p/AzureSynapseAnalyticsBlog">Azure Synapse Blog</a>. <br />
+Contact us: <a href="mailto:synapsefeedback@microsoft.com?subject=AzureSynapse.com%20Feedback">synapsefeedback@microsoft.com</a>.<br />
+Generated on Thu, Jul 15 2021 14:16:28 UTC
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sbd-logoimagessbd_implementationsuccesslogopng-data-integration-design-evaluation"><img src="../../images/SBD_implementationsuccessLogo.png" alt="SBD Logo"> Data Integration Design Evaluation</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#design-review">Design Review</a>
+      <ul>
+        <li><a href="#fit-gap-analysis">Fit-Gap Analysis</a></li>
+        <li><a href="#architecture-considerations">Architecture Considerations</a>
+          <ul>
+            <li><a href="#operational-excellence">Operational Excellence</a></li>
+            <li><a href="#performance-efficiency">Performance Efficiency</a></li>
+            <li><a href="#reliability">Reliability</a></li>
+            <li><a href="#security">Security</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+<script>
+    $('a[href^="http://"], a[href^="https://"]').not('a[href*="'+location.hostname+'"]').attr('target','_blank');
+</script>
+
+<script type="text/javascript">
+    !function(T,l,y){var S=T.location,u="script",k="instrumentationKey",D="ingestionendpoint",C="disableExceptionTracking",E="ai.device.",I="toLowerCase",b="crossOrigin",w="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"4",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[I](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,p,l,u;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][I]()]=i[1])}if(!e[D]){var r=e.endpointsuffix,o=r?e.location:null;e[D]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[k]||d[k]||"",p=s[D],l=p?p+"/v2/track":config.endpointUrl,(u=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=l,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),u.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,l)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:w,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(w,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(u,l))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(u);n.src=h;var e=y[b];return!e&&""!==e||"undefined"==n[b]||(n[b]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(u)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[C]&&!0!==s[C]){method="onerror",t(["_"+method]);var c=T[method];T[method]=function(e,t,n,a,i){var r=c&&c(e,t,n,a,i);return!0!==r&&m["_"+method]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);(T[t]=n).queue&&0===n.queue.length&&n.trackPageView({})}(window,document,{
+    src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js", 
+    
+    
+    
+    
+    cfg: { 
+        instrumentationKey: "0600b273-5440-42cc-9fe4-51924c721ce0"
+         
+    }});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
