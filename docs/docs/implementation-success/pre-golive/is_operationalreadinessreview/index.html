@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Operational Readiness Review #  Overview #  Once you build a Synapse Analytics solution and it is ready to deploy, it is important to ensure the operational readiness of that solution. Performing an Operational Readiness Review helps evaluate the solution for its preparedness to provide optimal services to its users. Organizations that invest time and resources in assessing the operational readiness of their solutions before launch have a much higher rate of satisfaction than those who don&rsquo;t.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="Operational Readiness Review #  Overview #  Once you build a Synapse Analytics solution and it is ready to deploy, it is important to ensure the operational readiness of that solution. Performing an Operational Readiness Review helps evaluate the solution for its preparedness to provide optimal services to its users. Organizations that invest time and resources in assessing the operational readiness of their solutions before launch have a much higher rate of satisfaction than those who don&rsquo;t." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/pre-golive/is_operationalreadinessreview/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Is Operational Readiness Review | Success by Design</title>
+<link rel="manifest" href="/Synapse-Success-By-Design/manifest.json">
+<link rel="icon" href="/Synapse-Success-By-Design/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/Synapse-Success-By-Design/book.min.b41cdcc69680b20b305adc2d69f998108e387359ce0e8d2d5f091e788a5bb27c.css" integrity="sha256-tBzcxpaAsgswWtwtafmYEI44c1nODo0tXwkeeIpbsnw=" crossorigin="anonymous">
+  <script defer src="/Synapse-Success-By-Design/flexsearch.min.js"></script>
+  <script defer src="/Synapse-Success-By-Design/en.search.min.099ac10d9f01d17c0a11a9ad565bb3c0e22df7d418d68cad2698415cb4490835.js" integrity="sha256-CZrBDZ8B0XwKEamtVluzwOIt99QY1oytJphBXLRJCDU=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/Synapse-Success-By-Design/"><img src="/Synapse-Success-By-Design/images/azure-icon.png" alt="Logo" /><span>Success by Design</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/home/" class="">Home</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/" class="">Implementation Success</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/poc_sucess/" class="">POC Success</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/video_series/" class="">Video Series</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/whats-new/" class="">Whats New</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/tools-utilities/" class="">Tools Utilities</a>
+  
+
+          
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Synapse-Success-By-Design/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Is Operational Readiness Review</strong>
+
+  <label for="toc-control">
+    
+    <img src="/Synapse-Success-By-Design/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sbd-logoimagessbd_implementationsuccesslogopng-operational-readiness-review"><img src="../images/SBD_implementationsuccessLogo.png" alt="SBD Logo"> Operational Readiness Review</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#process-and-focus-areas">Process and Focus Areas</a>
+      <ul>
+        <li><a href="#service-operational-goals">Service Operational Goals</a></li>
+        <li><a href="#solution-readiness">Solution Readiness</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#monitoring">Monitoring</a></li>
+        <li><a href="#hadr">HA/DR</a>
+          <ul>
+            <li><a href="#disaster-recovery">Disaster Recovery:</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="sbd-logoimagessbd_implementationsuccesslogopng-operational-readiness-review">
+  <img src="../images/SBD_implementationsuccessLogo.png" alt="SBD Logo" /> Operational Readiness Review
+  <a class="anchor" href="#sbd-logoimagessbd_implementationsuccesslogopng-operational-readiness-review">#</a>
+</h1>
+<h1 id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
+</h1>
+<p>Once you build a Synapse Analytics solution and it is ready to deploy,
+it is important to ensure the operational readiness of that solution.
+Performing an Operational Readiness Review helps evaluate the solution
+for its preparedness to provide optimal services to its users.
+Organizations that invest time and resources in assessing the
+operational readiness of their solutions before launch have a much
+higher rate of satisfaction than those who don&rsquo;t. It is also important
+to conduct an Operational Readiness Review periodically (once a year,
+for example) post deployment, to ensure there is no drift in operational
+expectations.</p>
+<h1 id="process-and-focus-areas">
+  Process and Focus Areas
+  <a class="anchor" href="#process-and-focus-areas">#</a>
+</h1>
+<h2 id="service-operational-goals">
+  Service Operational Goals
+  <a class="anchor" href="#service-operational-goals">#</a>
+</h2>
+<p>Service Expectations: Document service expectations from customer&rsquo;s
+point of view. Get a buy-in from the business on these service
+expectations. Make any modifications as necessary to meet business goals
+and objectives of the service.</p>
+<p>SLAs/OLAs: Service Level Objectives (SLAs) of each Azure service varies
+based on the service. For example, we guarantee that, at least 99.9% of
+the time client operations executed on a Synapse Analytics database will
+succeed. We have similar SLAs defined for each of the Azure services
+<a href="https://azure.microsoft.com/en-us/support/legal/sla/">here</a>. Ensure
+these SLAs match with your own business SLAs and document any gaps as
+needed. It is also important to define any Operational Level Agreements
+(OLAs) between different teams and ensure that these align with the
+SLAs.</p>
+<h2 id="solution-readiness">
+  Solution Readiness
+  <a class="anchor" href="#solution-readiness">#</a>
+</h2>
+<p>Architecture Description: Describe/Document the architecture end to end,
+calling out critical functionalities of differnet components of the
+architecture and how they interact with each other.</p>
+<p>Scalability: Describe/Document scalability aspects of your solution.
+This should include aspects like what is the effort involved in scaling
+and what is the impact of it on business, can it handle sudden surges of
+user activity etc. Azure Synapse Analytics provides functionality for
+scaling with minimal downtime.</p>
+<p>Reliability: Identify and document any single points of failure in your
+solution, along with how to remediate when such failures occur. This
+should include the impact of such failures on dependent services and to
+minimize the impact.</p>
+<p>Dependencies: List all dependent services on the solution and their
+impact.</p>
+<h2 id="security">
+  Security
+  <a class="anchor" href="#security">#</a>
+</h2>
+<p>Authentication: Ensure AAD (Azure Active Directory) authentication is
+being used where possible. If non-AAD authentication is in place, ensure
+strong password mechanisms in place and passwords are being rotated at
+regular intervals. Check the link below for a Microsoft whitepaper on
+password guidance:</p>
+<p><a href="https://www.microsoft.com/en-us/research/publication/password-guidance/">Password Guidance - Microsoft
+Research</a></p>
+<p>Also, ensure monitoring is in place for suspicious actions related to
+user authentication. Azure Identity Protection is a feature that helps
+detecting potential vulnerabilities and suspicious actions related to
+identities.</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/security/fundamentals/operational-best-practices">Security best practices for your Azure assets - Azure security |
+Microsoft
+Docs</a></p>
+<p>Access Control: Ensure proper access controls are in place following the
+principle of least privileges. Use security features available with
+Azure services to properly tighten the security of your solution. For
+example, Azure Synapse Analytics provides granular security features
+such as RLS (Row-level Security), CLS (Column Level Security), DDM
+(Dynamic Data Masking) etc. to properly secure your data with absolute
+minimum privileges needed.</p>
+<p><a href="https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/synapse-analytics-security-baseline">Azure security baseline for Azure Synapse dedicated SQL pool (formerly
+SQL DW) | Microsoft
+Docs</a></p>
+<p>Threats: Ensure proper threat detection mechanisms in place to prevent,
+detect and respond to threats. Azure Security Center provides integrated
+security monitoring across your Azure subscriptions and help detect
+threats that might otherwise go unnoticed.</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-introduction">https://docs.microsoft.com/en-us/azure/security-center/security-center-introduction</a></p>
+<p>Adopt a centralized Security Information and Event Management (SIEM)
+solution that meets your organizational security needed. Azure Sentinel
+is one such scalable, cloud-native SIEM solution that provides
+intelligent security analytics and threat intelligence via alert
+detection, threat visibility, proactive hunting and automated threat
+response.</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/sentinel/overview">What is Azure Sentinel? | Microsoft
+Docs</a></p>
+<h2 id="monitoring">
+  Monitoring
+  <a class="anchor" href="#monitoring">#</a>
+</h2>
+<p>Expectations: Set and document expectations on the monitoring readiness
+with your business. These expectations should include things like, how
+do you monitor end-to-end user experience, does the monitoring include
+single-user experience, how do you notify on poor user experience, what
+metrics from each service do you monitor etc. You should also include
+details on your pro-active health checks and any mechanisms in place to
+take automatic actions for reactive incidents (Ex: raising a ticket
+automatically).</p>
+<p>Azure Monitor provides base-level infrastructure metrics, alerts, and
+logs for most of the Azure services. <a href="https://azure.microsoft.com/en-us/services/monitor/">Azure Monitor | Microsoft
+Azure</a></p>
+<p>Metrics: List all the important metrics you monitor for each service in
+your solution along with their acceptable thresholds. For example, the
+following are the important metrics to monitor for a Synapse Dedicated
+SQL Pool:</p>
+<p>DWULimit</p>
+<p>DWUUsed</p>
+<p>AdaptiveCacheHitPercent</p>
+<p>AdaptiveCacheUsedPercent</p>
+<p>LocalTempDBUsedPercent</p>
+<p>ActiveQueries</p>
+<p>QueuedQueries</p>
+<p>Check the link below for a more comprehensive list of metrics for each
+component of the Azure Synapse Analytics:</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/monitoring/how-to-monitor-using-azure-monitor">How to monitor Synapse Analytics using Azure Monitor - Azure Synapse
+Analytics | Microsoft
+Docs</a></p>
+<p>In addition, utilize Azure Service Heath service to get notified on
+Azure service incidents and planned maintenance. <a href="https://azure.microsoft.com/en-us/features/service-health/">Azure Service Health
+| Microsoft
+Azure</a></p>
+<p>Notifications: Ensure proper notifications are in-place to notify
+appropriate personnel when incidents occur. The incidents could be
+proactive such as certain metric exceeded a pre-set threshold or
+reactive such as a failure of a component/service.</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview">Overview of alerting and notification monitoring in Azure - Azure
+Monitor | Microsoft
+Docs</a></p>
+<h2 id="hadr">
+  HA/DR
+  <a class="anchor" href="#hadr">#</a>
+</h2>
+<p>High Availability: Define and document RTO (Recovery Time Objective) and
+RPO (Recovery Point Objective) for your data. Each of the Azure services
+publish a set of guidelines and metrics on the expected High
+Availability of the service. Ensure these HA metrics maps to your
+business expectations. If not, customization may be necessary to meet
+your HA requirements. For example, Synapse dedicated SQL pool supports
+an eight-hour RPO with automatic restore points. If that RPO is not
+sufficient for your business, user-defined restore points may need to be
+setup with appropriate frequency to meet your RPO needs.</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/backup-and-restore">Backup and restore - snapshots, geo-redundant - Azure Synapse Analytics
+| Microsoft
+Docs</a></p>
+<h3 id="disaster-recovery">
+  Disaster Recovery:
+  <a class="anchor" href="#disaster-recovery">#</a>
+</h3>
+<p>Define and document a well-defined process for DR scenarios, such as
+failover process, communication mechanisms, escalation process, war room
+setup etc. Also document process for identifying the causes of outages
+and the steps to be taken to recover from the disasters. Utilize the
+built-in DR mechanisms available with Azure services for building your
+DR process. For example, Azure Synapse Analytics performs a standard
+geo-backup of SQL dedicated pools once every day to a paired data
+center. These geo-backups can be used to recover from a disaster at the
+primary location. Azure Data Lake storage can be configured to copy data
+to another Azure region that is hundreds of miles apart. In case of a
+disaster at primary location, a failover can be initiated to transform
+the secondary storage location into primary.</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance#unsupported-features-and-services">https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance#unsupported-features-and-services</a></p>
+<h1 id="conclusion">
+  Conclusion
+  <a class="anchor" href="#conclusion">#</a>
+</h1>
+<p>Utilizing the guidance in this document ensures the operational
+readiness of your Azure Synapse Analytics solution.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        <hr />
+Azure Synapse &copy;2021 <br />
+Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Synapse homepage</a> or read our <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started">getting started guide</a> or the 
+<a href="https://techcommunity.microsoft.com/t5/azure-synapse-analytics/bg-p/AzureSynapseAnalyticsBlog">Azure Synapse Blog</a>. <br />
+Contact us: <a href="mailto:synapsefeedback@microsoft.com?subject=AzureSynapse.com%20Feedback">synapsefeedback@microsoft.com</a>.<br />
+Generated on Thu, Jul 15 2021 14:45:09 UTC
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sbd-logoimagessbd_implementationsuccesslogopng-operational-readiness-review"><img src="../images/SBD_implementationsuccessLogo.png" alt="SBD Logo"> Operational Readiness Review</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#process-and-focus-areas">Process and Focus Areas</a>
+      <ul>
+        <li><a href="#service-operational-goals">Service Operational Goals</a></li>
+        <li><a href="#solution-readiness">Solution Readiness</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#monitoring">Monitoring</a></li>
+        <li><a href="#hadr">HA/DR</a>
+          <ul>
+            <li><a href="#disaster-recovery">Disaster Recovery:</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+<script>
+    $('a[href^="http://"], a[href^="https://"]').not('a[href*="'+location.hostname+'"]').attr('target','_blank');
+</script>
+
+<script type="text/javascript">
+    !function(T,l,y){var S=T.location,u="script",k="instrumentationKey",D="ingestionendpoint",C="disableExceptionTracking",E="ai.device.",I="toLowerCase",b="crossOrigin",w="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"4",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[I](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,p,l,u;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][I]()]=i[1])}if(!e[D]){var r=e.endpointsuffix,o=r?e.location:null;e[D]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[k]||d[k]||"",p=s[D],l=p?p+"/v2/track":config.endpointUrl,(u=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=l,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),u.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,l)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:w,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(w,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(u,l))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(u);n.src=h;var e=y[b];return!e&&""!==e||"undefined"==n[b]||(n[b]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(u)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[C]&&!0!==s[C]){method="onerror",t(["_"+method]);var c=T[method];T[method]=function(e,t,n,a,i){var r=c&&c(e,t,n,a,i);return!0!==r&&m["_"+method]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);(T[t]=n).queue&&0===n.queue.length&&n.trackPageView({})}(window,document,{
+    src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js", 
+    
+    
+    
+    
+    cfg: { 
+        instrumentationKey: "0600b273-5440-42cc-9fe4-51924c721ce0"
+         
+    }});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
