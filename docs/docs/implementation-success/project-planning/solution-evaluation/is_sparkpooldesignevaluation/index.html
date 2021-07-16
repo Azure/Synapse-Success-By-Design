@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Spark Pool Design Evaluation #  Apache Spark in Synapse brings the Apache Spark parallel data processing to the Azure Synapse.
-Fit Gap Analysis #  When planning to implement Spark pools with Azure Synapse, you first need to ensure Apache Spark Pools in Azure Synapse is the best fit for your workload. These are the items to consider for utilizing Apache Spark in Synapse:
-  Does your workload require data engineering/data preparation?">
+<meta name="description" content="Spark Pool Design Evaluation #  Overview #  Apache Spark in Synapse brings the Apache Spark parallel data processing to the Azure Synapse. This evaluation provides direction on when Apache Spark in Azure Synapse is or is not the best fit for your workload and will discusses items to consider when you are evaluating your solution design elements that incorporate Spark Pools.
+Fit Gap Analysis #  When planning to implement Spark pools with Azure Synapse, you first need to ensure Apache Spark Pools in Azure Synapse is the best fit for your workload.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
-<meta property="og:description" content="Spark Pool Design Evaluation #  Apache Spark in Synapse brings the Apache Spark parallel data processing to the Azure Synapse.
-Fit Gap Analysis #  When planning to implement Spark pools with Azure Synapse, you first need to ensure Apache Spark Pools in Azure Synapse is the best fit for your workload. These are the items to consider for utilizing Apache Spark in Synapse:
-  Does your workload require data engineering/data preparation?" />
+<meta property="og:description" content="Spark Pool Design Evaluation #  Overview #  Apache Spark in Synapse brings the Apache Spark parallel data processing to the Azure Synapse. This evaluation provides direction on when Apache Spark in Azure Synapse is or is not the best fit for your workload and will discusses items to consider when you are evaluating your solution design elements that incorporate Spark Pools.
+Fit Gap Analysis #  When planning to implement Spark pools with Azure Synapse, you first need to ensure Apache Spark Pools in Azure Synapse is the best fit for your workload." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_sparkpooldesignevaluation/" /><meta property="article:section" content="docs" />
 
@@ -20,7 +18,7 @@ Fit Gap Analysis #  When planning to implement Spark pools with Azure Synapse, y
 <link rel="icon" href="/Synapse-Success-By-Design/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/Synapse-Success-By-Design/book.min.b41cdcc69680b20b305adc2d69f998108e387359ce0e8d2d5f091e788a5bb27c.css" integrity="sha256-tBzcxpaAsgswWtwtafmYEI44c1nODo0tXwkeeIpbsnw=" crossorigin="anonymous">
   <script defer src="/Synapse-Success-By-Design/flexsearch.min.js"></script>
-  <script defer src="/Synapse-Success-By-Design/en.search.min.03576617a3500aa663f13197557a8600ebfb2e4bf84a24c7c0108ccde48aaa8e.js" integrity="sha256-A1dmF6NQCqZj8TGXVXqGAOv7Lkv4SiTHwBCMzeSKqo4=" crossorigin="anonymous"></script>
+  <script defer src="/Synapse-Success-By-Design/en.search.min.4b517cd334e8536162396a743242d9d64ea8734bf052b551ed91130acf2be675.js" integrity="sha256-S1F80zToU2FiOWp0MkLZ1k6oc0vwUrVR7ZETCs8r5nU=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -200,13 +198,18 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#spark-pool-design-evaluation">Spark Pool Design Evaluation</a>
+    <li><a href="#spark-pool-design-evaluation">Spark Pool Design Evaluation</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#fit-gap-analysis">Fit Gap Analysis</a></li>
+    <li><a href="#architecture-considerations">Architecture Considerations</a>
       <ul>
-        <li><a href="#fit-gap-analysis">Fit Gap Analysis</a></li>
+        <li><a href="#operational-excellence">Operational Excellence</a></li>
+        <li><a href="#performance-efficiency">Performance Efficiency</a></li>
+        <li><a href="#reliability">Reliability</a></li>
+        <li><a href="#security">Security</a></li>
       </ul>
     </li>
-    <li><a href="#architecture-considerations">Architecture Considerations</a></li>
-    <li><a href="#operational-excellence">Operational Excellence</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
 
@@ -224,23 +227,30 @@ https://github.com/alex-shpak/hugo-book
   Spark Pool Design Evaluation
   <a class="anchor" href="#spark-pool-design-evaluation">#</a>
 </h1>
+<h1 id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
+</h1>
 <p>Apache Spark in Synapse brings the Apache Spark parallel data processing
-to the Azure Synapse.</p>
-<h2 id="fit-gap-analysis">
+to the Azure Synapse. This evaluation provides direction on when Apache
+Spark in Azure Synapse is or is not the best fit for your workload and
+will discusses items to consider when you are evaluating your solution
+design elements that incorporate Spark Pools.</p>
+<h1 id="fit-gap-analysis">
   Fit Gap Analysis
   <a class="anchor" href="#fit-gap-analysis">#</a>
-</h2>
+</h1>
 <p>When planning to implement Spark pools with Azure Synapse, you first
 need to ensure Apache Spark Pools in Azure Synapse is the best fit for
 your workload. These are the items to consider for utilizing Apache
 Spark in Synapse:</p>
-<ol>
+<ul>
 <li>
 <p>Does your workload require data engineering/data preparation?</p>
 <ul>
 <li>
 <p>Apache Spark works best for workloads that require:</p>
-<ol>
+<ul>
 <li>
 <p>Data Cleaning</p>
 </li>
@@ -251,9 +261,9 @@ Spark in Synapse:</p>
 <p>Complex free-text transformation (fuzzy matching, NLP)</p>
 </li>
 <li>
-<p>Prepping data for machine</p>
+<p>Prepping data for machine learning</p>
 </li>
-</ol>
+</ul>
 </li>
 </ul>
 </li>
@@ -311,35 +321,40 @@ considered.</p>
 <li>
 <p>If you are looking for a lift and shift approach for your Apache
 Big Data environment from on-prem to the cloud and require
-strict data engineering SLA, use
+strict data engineering SLA, consider using
 <a href="https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-overview">HDInsight</a></p>
 </li>
 </ul>
 </li>
-</ol>
+</ul>
 <h1 id="architecture-considerations">
   Architecture Considerations
   <a class="anchor" href="#architecture-considerations">#</a>
 </h1>
-<p>To ensure that your Apache Spark pool meets your operational,
-performance, and security requirements, there are key areas to address
-in your architecture.</p>
-<h1 id="operational-excellence">
+<p>To ensure that your Apache Spark pool meets your requirements for
+operational excellence, performance, reliability, and security there are
+key areas to validate in your architecture.</p>
+<h2 id="operational-excellence">
   Operational Excellence
   <a class="anchor" href="#operational-excellence">#</a>
-</h1>
-<p><strong>Environment Configuration</strong></p>
-<p>When configuring your environment ensure that you have designed your
-pool to take advantage of features such as auto-scale and dynamic
-allocation. Also consider utilizing the automatic pause feature to
-reduce costs.</p>
-<p><strong>Package Management</strong></p>
-<p>Determine if the Apache Spark libraries to be used will be used at a
-Workspace, Pool, or Session level. When managing packages at each level
-there are different considerations to
+</h2>
+<ul>
+<li>
+<p><strong>Environment:</strong> When configuring your environment ensure that you
+have designed your pool to take advantage of features such as
+auto-scale and dynamic allocation. Also consider utilizing the
+automatic pause feature to reduce costs.</p>
+</li>
+<li>
+<p><strong>Package Management:</strong> Determine if the Apache Spark libraries to
+be used will be used at a Workspace, Pool, or Session level. When
+managing packages at each level there are different considerations
+to
 <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-azure-portal-add-libraries">consider</a>.</p>
-<p><strong>Monitoring</strong></p>
-<p>Apache Spark in Azure Synapse provides built-in Spark
+</li>
+<li>
+<p><strong>Monitoring:</strong> Apache Spark in Azure Synapse provides built-in
+Spark
 <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/monitoring/how-to-monitor-spark-pools">pool</a>
 and
 <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/monitoring/apache-spark-applications">application</a>
@@ -349,29 +364,85 @@ Analytics</a>
 or <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics">Prometheus and
 Grafana</a>
 to visualize metrics and logs.</p>
-<p><strong>Networking</strong></p>
-<p>If designing to use a managed virtual network with Azure Synapse
-consider the implications this will have on Apache Spark in Azure
-Synapse. One such consideration is the inability to use Spark SQL when
-accessing data.</p>
-<p>Performance Efficiency</p>
-<p><strong>File size and File type:</strong> The size of the file and the type of file
-for reading and writing to and from Apache Spark to cloud storage is key
-to good performance. Both should be handled prior to ingestion to Apache
-Spark. Design the architecture to ensure that the files types are file
-types that is conducive to native ingestion with Apache Spark. Also
-ensure that the size of the files are large files and not many small
-files.</p>
-<p><strong>Partitioning:</strong> Determine if partitioning at the folder and/or file
-level will be implemented for your workload. Folder partition limits the
-amount of data to be searched and read. File partitioning reduces the
-amount of data to be searched in the file but only applies to specific
-file formats and needs to be considered in the initial architecture.</p>
-<p>Security</p>
-<p>Security for the data to be accessed must be considered at the ADLS
+</li>
+</ul>
+<h2 id="performance-efficiency">
+  Performance Efficiency
+  <a class="anchor" href="#performance-efficiency">#</a>
+</h2>
+<ul>
+<li>
+<p><strong>File size and File type:</strong> The size of the file and the type of
+file for reading and writing to and from Apache Spark to cloud
+storage is key to good performance. Both should be handled prior to
+ingestion to Apache Spark. Design the architecture to ensure that
+the file types are conducive to native ingestion with Apache Spark.
+Also ensure that the size of the files are large files and not many
+small files.</p>
+</li>
+<li>
+<p><strong>Partitioning:</strong> Identify if partitioning at the folder and/or file
+level will be implemented for your workload. Folder partitions limit
+the amount of data to be searched and read. File partitioning
+reduces the amount of data to be searched in the file but only
+applies to specific file formats and needs to be considered in the
+initial architecture.</p>
+</li>
+</ul>
+<h2 id="reliability">
+  Reliability
+  <a class="anchor" href="#reliability">#</a>
+</h2>
+<ul>
+<li>
+<p><strong>Availability:</strong> Spark pools have a start time of three to four
+minutes. Depending on the number of libraries to be installed this
+could take longer. When designing batch vs. streaming workloads
+identify the SLA for executing the job from your assessment
+information and determine which architecture meets your needs.</p>
+</li>
+<li>
+<p>In addition, each execution of a job creates a new Spark pool
+cluster. This should also be taken into consideration.</p>
+</li>
+<li>
+<p><strong>Checkpointing:</strong> Apache Spark has built-in checkpointing
+capabilities when using streaming workloads. This allows for your
+stream to recover from the last processed entry when there is a
+failure on a node in your pool.</p>
+</li>
+</ul>
+<h2 id="security">
+  Security
+  <a class="anchor" href="#security">#</a>
+</h2>
+<ul>
+<li>
+<p><strong>Data:</strong> Data to be accessed must be considered for the ADLS
 account that is attached to the Synapse workspace. In addition,
-determine the security levels that should be required to access any data
-that is not within the Synapse environment.</p>
+determine the security levels that should be required to access any
+data that is not within the Synapse environment. Refer to the
+information you collected during the assessment.</p>
+</li>
+<li>
+<p><strong>Networking:</strong> Review the networking information and requirements
+gathered during your assessment. If the design specifies to use a
+managed virtual network with Azure Synapse, consider the
+implications this will have on Apache Spark in Azure Synapse. One
+such consideration is the inability to use Spark SQL when accessing
+data.</p>
+</li>
+</ul>
+<h1 id="conclusion">
+  Conclusion
+  <a class="anchor" href="#conclusion">#</a>
+</h1>
+<p>Utilizing the guidance discussed in this design evaluation and
+validating your design against these guidelines and the information you
+gathered during the assessment you will help ensure your Apache Spark in
+Azure Synapse architecture is sound and meets your needs. You can find
+more guidance on best practices when using Apache Spark in Azure Synapse
+<a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-performance">here</a>.</p>
 </article>
  
       
@@ -397,7 +468,7 @@ Azure Synapse &copy;2021 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Synapse homepage</a> or read our <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started">getting started guide</a> or the 
 <a href="https://techcommunity.microsoft.com/t5/azure-synapse-analytics/bg-p/AzureSynapseAnalyticsBlog">Azure Synapse Blog</a>. <br />
 Contact us: <a href="mailto:synapsefeedback@microsoft.com?subject=AzureSynapse.com%20Feedback">synapsefeedback@microsoft.com</a>.<br />
-Generated on Thu, Jul 15 2021 18:12:57 UTC
+Generated on Fri, Jul 16 2021 16:05:28 UTC
       </footer>
 
       
@@ -418,13 +489,18 @@ Generated on Thu, Jul 15 2021 18:12:57 UTC
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#spark-pool-design-evaluation">Spark Pool Design Evaluation</a>
+    <li><a href="#spark-pool-design-evaluation">Spark Pool Design Evaluation</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#fit-gap-analysis">Fit Gap Analysis</a></li>
+    <li><a href="#architecture-considerations">Architecture Considerations</a>
       <ul>
-        <li><a href="#fit-gap-analysis">Fit Gap Analysis</a></li>
+        <li><a href="#operational-excellence">Operational Excellence</a></li>
+        <li><a href="#performance-efficiency">Performance Efficiency</a></li>
+        <li><a href="#reliability">Reliability</a></li>
+        <li><a href="#security">Security</a></li>
       </ul>
     </li>
-    <li><a href="#architecture-considerations">Architecture Considerations</a></li>
-    <li><a href="#operational-excellence">Operational Excellence</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
 

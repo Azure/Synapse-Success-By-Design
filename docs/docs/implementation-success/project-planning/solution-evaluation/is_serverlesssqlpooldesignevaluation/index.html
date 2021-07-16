@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Serverless SQL Pool Design Evaluation #  Separation of storage and compute as a design principle for modern data and analytical platforms and services has been a trend and frequently used pattern since it provided cost savings and more flexibility in on-demand scaling of your storage and compute independently. Synapse SQL Serverless (Serverless SQL pool - Azure Synapse Analytics | Microsoft Docs) further extends this pattern and adds an important capability to query your data directly from your data lake storage and not to worry about compute management while leveraging self-service types of workload.">
+<meta name="description" content="Serverless SQL Pool Design Evaluation #  Overview #  Separation of storage and compute as a design principle for modern data and analytical platforms and services has been a trend and frequently used pattern, it provides cost savings and more flexibility in on-demand scaling of your storage and compute independently. Synapse SQL Serverless further extends this pattern and adds an important capability to query your data directly from your data lake storage and not to worry about compute management while leveraging self-service types of workloads.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
-<meta property="og:description" content="Serverless SQL Pool Design Evaluation #  Separation of storage and compute as a design principle for modern data and analytical platforms and services has been a trend and frequently used pattern since it provided cost savings and more flexibility in on-demand scaling of your storage and compute independently. Synapse SQL Serverless (Serverless SQL pool - Azure Synapse Analytics | Microsoft Docs) further extends this pattern and adds an important capability to query your data directly from your data lake storage and not to worry about compute management while leveraging self-service types of workload." />
+<meta property="og:description" content="Serverless SQL Pool Design Evaluation #  Overview #  Separation of storage and compute as a design principle for modern data and analytical platforms and services has been a trend and frequently used pattern, it provides cost savings and more flexibility in on-demand scaling of your storage and compute independently. Synapse SQL Serverless further extends this pattern and adds an important capability to query your data directly from your data lake storage and not to worry about compute management while leveraging self-service types of workloads." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_serverlesssqlpooldesignevaluation/" /><meta property="article:section" content="docs" />
 
@@ -16,7 +16,7 @@
 <link rel="icon" href="/Synapse-Success-By-Design/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/Synapse-Success-By-Design/book.min.b41cdcc69680b20b305adc2d69f998108e387359ce0e8d2d5f091e788a5bb27c.css" integrity="sha256-tBzcxpaAsgswWtwtafmYEI44c1nODo0tXwkeeIpbsnw=" crossorigin="anonymous">
   <script defer src="/Synapse-Success-By-Design/flexsearch.min.js"></script>
-  <script defer src="/Synapse-Success-By-Design/en.search.min.03576617a3500aa663f13197557a8600ebfb2e4bf84a24c7c0108ccde48aaa8e.js" integrity="sha256-A1dmF6NQCqZj8TGXVXqGAOv7Lkv4SiTHwBCMzeSKqo4=" crossorigin="anonymous"></script>
+  <script defer src="/Synapse-Success-By-Design/en.search.min.4b517cd334e8536162396a743242d9d64ea8734bf052b551ed91130acf2be675.js" integrity="sha256-S1F80zToU2FiOWp0MkLZ1k6oc0vwUrVR7ZETCs8r5nU=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -197,6 +197,17 @@ https://github.com/alex-shpak/hugo-book
 <nav id="TableOfContents">
   <ul>
     <li><a href="#serverless-sql-pool-design-evaluation">Serverless SQL Pool Design Evaluation</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#fit-gap-analysis">Fit Gap Analysis</a>
+      <ul>
+        <li><a href="#operational-excellence">Operational Excellence</a></li>
+        <li><a href="#performance-efficiency">Performance Efficiency</a></li>
+        <li><a href="#reliability">Reliability</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#other-considerations">Other considerations</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
 
@@ -214,205 +225,219 @@ https://github.com/alex-shpak/hugo-book
   Serverless SQL Pool Design Evaluation
   <a class="anchor" href="#serverless-sql-pool-design-evaluation">#</a>
 </h1>
+<h1 id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
+</h1>
 <p>Separation of storage and compute as a design principle for modern data
 and analytical platforms and services has been a trend and frequently
-used pattern since it provided cost savings and more flexibility in
-on-demand scaling of your storage and compute independently. Synapse SQL
-Serverless (Serverless SQL pool - Azure Synapse Analytics | Microsoft
-Docs) further extends this pattern and adds an important capability to
-query your data directly from your data lake storage and not to worry
+used pattern, it provides cost savings and more flexibility in on-demand
+scaling of your storage and compute independently. Synapse SQL
+Serverless further extends this pattern and adds an important capability
+to query your data directly from your data lake storage and not to worry
 about compute management while leveraging self-service types of
-workload.</p>
-<p>The purpose of the following is to provide core guidance for
-implementations and architectures that include Synapse SQL Serverless
-pools and try to reduce blockers and frequently found on the course of
-the implementation of modern data architectures based on Azure Synapse
-or later in the production stages. <del>To be consistent with guiding
-tenets of Well Architected Framework (Microsoft Azure Well-Architected
-Framework - Azure Architecture Center | Microsoft Docs) that aim to
-improve the quality of a workload we are going to try to reuse the main
-pillars that will allow better structure of the information and also
-help to introduce necessary checkpoints in the corresponding phases of
-you project execution.</del></p>
-<p>Before we dig into each one of the categories - Operational Excellence,
-Performance Efficiency, Reliability and Security - make sure you have a
-clear understanding of a future workload that you are aiming to land on
-SQL Serverless. While in many cases pay-per-query and autoscaling
-capabilities of querying data directly from your data lake storage are
-frequent motivation points, design should fit the purpose therefore
-validation of the type/s of workload would be a good starting point and
-the first suggested checkpoint.</p>
-<p>In the scope of the architecture, we typically expect data science,
-exploratory analysis and self service purposes to be the main drivers
-for SQL Serverless along with a need for flexible data sharing scenarios
-across frameworks and technologies, especially when there are some
-operational or technical impediments to extend ETL/ELT processes for
-loading/unloading data to and from different engines and data stores.</p>
-<p>Some use cases will drive extremely high concurrency to your Synapse SQL
-Dedicated pools service (streaming or IoT with considerable number of
-independent processing threads that produce write operations). That
-scenario could potentially be a good fit for leveraging Data Lake and
-SQL Serverless for part of your workload (raw area stream writes to Data
-Lake and SQL Serverless based access to storage that requires most
-recent data).</p>
-<p>You want to validate if fast data ingestion, more immediate data
-availability for exploration or reporting, flexibility in tools or
-frameworks that need to deal with the data are required and relaxed SLAs
-fit your use case/s and requirements. In many cases you will find a good
-fit when Synapse SQL and Synapse Spark (What is Apache Spark - Azure
-Synapse Analytics | Microsoft Docs) are being used on the same data and
-there is no need to add additional complexity. Read more about sharing
-metadata between SQL Serverless and Synapse Spark engine (Shared
-metadata model - Azure Synapse Analytics | Microsoft Docs)</p>
-<p>1.- Operational Excellence</p>
-<blockquote>
-<p><strong>Environment</strong>: check if a single Synapse workspace fits your
-security and organizational requirements. More than one might be
-necessary in case you are obliged to segregate your production and
-dev/test users and workloads.</p>
-<p><strong>Model and change management</strong>: if more than a single Synapse
-environment is required, consider placing critical scripts and DDLs
-onto a repository and sync the environments via pull requests.</p>
+workloads.</p>
+<p>The purpose of this evaluation is to provide guidance for architectures
+that include Synapse SQL Serverless pools and to try to reduce blockers
+frequently found during the course of the implementation of modern data
+architectures based on Azure Synapse or later in the production stages.</p>
+<h1 id="fit-gap-analysis">
+  Fit Gap Analysis
+  <a class="anchor" href="#fit-gap-analysis">#</a>
+</h1>
+<p>When planning to implement SQL Serverless pools within Azure Synapse
+Analytics, you first need to ensure Serverless Pools are the best fit
+for your workloads. These are the items to consider for utilizing Apache
+Spark in Synapse:</p>
+<h2 id="operational-excellence">
+  Operational Excellence
+  <a class="anchor" href="#operational-excellence">#</a>
+</h2>
+<ul>
+<li>
+<p><strong>Solution Development Environment</strong>: Within this method there is a
+review of the solution development environment. Identify how the
+environments are designed to support solution development
+(dev/test/prod). Most commonly you will find a prod and non-prod
+environment with Production being placed in the prod environment and
+Dev and Test placed in a non-prod environment. You should find the
+Synapse Workspaces in the solution to exist in all of the
+environments (dev/test/prod). In most cases, you are obliged to
+segregate your production and dev/test users and workloads.</p>
+</li>
+<li>
+<p><strong>Synapse Workspace Design</strong>: Within this method there is a review
+of the Synapse Workspace design. Identify how the Workspace(s) have
+been designed for your solution. Become familiar with the design and
+know if the solution will utilize a single workspace or if multiple
+workspaces are part of the solution. Know why a single or multiple
+workspace design was chosen. A multi-workspace design is usually
+chosen to support strict security boundaries.</p>
+</li>
+<li>
 <p><strong>Deployment</strong>: SQL Serverless per se does not require any special
-deployment actions and you will have that service available on-demand
-with every Synapse workspace. Check regional proximity of the service
-and that of the Data Lake Storage Gen2 you access with SQL Serverless.</p>
-<p><strong>Testing</strong>: check if your testing routines can be put and automated
-as part of your deployment pipelines by leveraging services like Azure
-DevOps. If certain testing is bound to performance, check and ensure
-stats have been created first by executing the benchmark workload
-beforehand.</p>
-<p><strong>Monitoring</strong>: check if build-in monitoring is sufficient and if some
-external services need to put in place to store historical log data,
-in order to be able to analyze changes in performance or allow you to
-define alerting or triggered actions for specific situations.</p>
-</blockquote>
-<p>2.- Performance Efficiency</p>
-<blockquote>
-<p>Unlike traditional database engines, SQL Serverless does not rely on
-its own optimized storage layer and for that reason its performance is
-strongly dependent on how data is organized in Azure Data Lake Storage
-Gen2.</p>
-<p>Having a design and organization of your data files that projects good
-partitioning of your data, you can expect reliable performance of SQL
-Serverless, however the dedicated SQL pools usually would outperform
-the former and provide more flexibility in terms of tuning
-capabilities and workload management. Consider this point carefully
-when you have strict performance SLAs.</p>
-<p><strong>Data Ingestion</strong>: check how data is stored in Data Lake Storage
-Gen2, i.e., the file sizes, number of files, and folder structure have
-an impact on performance. Keep in mind that while some file sizes
-might work for SQL Serverless, but on the other side might impose
-troubles for efficient processing or consumption by other engines and
-applications.</p>
-<p><strong>Data Placement</strong>: check if you can unify and define common pattern
-for data placement and make sure that directory branching can support
-your security requirements. There are a few common patterns that help
-you keep your time series data organized. Whichever your choice is,
-make sure that it also works with other engines and workloads like if
-it can help partition auto-discovery for Spark applications and
-external tables.</p>
-<p><strong>Data Formats</strong>: there are number of choices and most probably you
-will be dealing with different formats on different layers of your
-Data Lake as each layer might need to support distinct types of
-workloads (like heavy writes or where schema evolves frequently vs
-others that should be more oriented for efficient exploration). Today
-SQL Serverless in most cases will offer the best performance and
-better compatibility feature-wise with Parquet format. Check your
-performance and compatibility requirements what format works best in
-your case, because while Parquet improves performance through better
+deployment actions and you will have that service available
+on-demand with every Synapse workspace. Check regional proximity of
+the service and that of the Data Lake Storage Gen2 you access with
+SQL Serverless.</p>
+</li>
+<li>
+<p><strong>Monitoring</strong>: check if built-in monitoring is sufficient and if
+any external services need to put in place to store historical log
+data, in order to be able to analyze changes in performance or allow
+you to define alerting or triggered actions for specific situations.</p>
+</li>
+</ul>
+<h2 id="performance-efficiency">
+  Performance Efficiency
+  <a class="anchor" href="#performance-efficiency">#</a>
+</h2>
+<p>Unlike traditional database engines, SQL Serverless does not rely on its
+own optimized storage layer and for that reason its performance is
+strongly dependent on how data is organized in Azure Data Lake Storage.</p>
+<ul>
+<li>
+<p><strong>Data Ingestion</strong>: Review how data is stored in Data Lake Storage -
+the file sizes, number of files, and folder structure all have an
+impact on performance. Keep in mind that while some file sizes might
+work for SQL Serverless they may impose issues for efficient
+processing or consumption by other engines and applications. You
+will need to evaluate the data storage design and validate it
+against all of the data consumers plus SQL Serverless and any other
+data tools that are part of your solution.</p>
+</li>
+<li>
+<p><strong>Data Placement</strong>: Evaluate if your design has unified and defined
+common patterns for data placement. Make sure that directory
+branching can support your security requirements. There are a few
+common patterns that help you keep your time series data organized.
+Whichever your choice is, make sure that it also works with other
+engines and workloads, validate if it can help partition
+auto-discovery for Spark applications and external tables.</p>
+</li>
+<li>
+<p><strong>Data Formats</strong>: SQL Serverless in most cases will offer the best
+performance and better compatibility feature-wise using a Parquet
+format. Verify your performance and compatibility requirements,
+because while Parquet improves performance through better
 compression and reduction of IO by reading only required columns
 needed for the analysis, it requires additional compute and some
 source systems do not natively support Parquet for export output
 format which would lead for additional transformation steps in your
 pipelines and/or dependencies in your overall architecture.</p>
-<p>Data transformations and conversions into desirable format can be
-easily and very efficiently achieved with Synapse Spark Pools - check
-if you can leverage that service in your data pipelines.</p>
-<p><strong>Exploration</strong>: every industry is different, but in many cases, there
-are certain data access patterns that will be common across most
-frequent queries of your workload., i.e. filtering and aggregations by
-dates, categories or geographies that are core to customers business.
-Check your most common filtering criteria, relate these to how much
-data is being read/discarded by top used queries and validate if the
-information on Data Lake is organized that favors your exploration
-performance expectations.</p>
-<p>Check in your queries if you effectively eliminate unnecessary
-partitions in your OPENROWSET path parameter or, in case of external
-tables, if additional indexing is required.</p>
-<p>Bear in mind that some tools like Power BI in addition can compensate
-and provide an additional layer of caching (Query caching in Power BI
-Premium - Power BI | Microsoft Docs) and compression techniques to
-fit necessary datasets in memory and improve end user experience in
-case of SQL Serverless - evaluate if tools with such characteristics
-need to be also included in your architecture from the beginning.</p>
-</blockquote>
-<p>3- Reliability</p>
-<blockquote>
-<p><strong>Availability</strong>: check if there are strict requirements for
-availability. While there are no specific SLAs for serverless and
-resources for query execution are being acquired on-demand, currently
-there is 30 min timeout for query execution which might break the
-expectations for your workload and appear to be a service problem. In
-such cases check if some of the best practices have not been applied.</p>
-<p><strong>Consistency</strong>: SQL Serverless is mostly for read workloads, validate
-if all consistency checks have been performed during the Data Lake
-data provisioning and formation process. Keep on your radar new
-capabilities like recent addition of Delta Lake open-source storage
-layer which provides support for ACID (Atomicity, Consistency,
-Isolation and Durability) guarantees for transactions and it allows us
-to implement effective lambda/kappa architectures to support both
-streaming and batch use cases.</p>
-<p><strong>Backup</strong>: weigh on your disaster recovery requirements: SQL
-Serverless does not have its own storage layer and that would require
-handling snapshots and backup copies of your data mostly externally
-(except situations when you can use CETAS to make copies of your
-critical data referenced by external tables.). In many Data Lake
-implementations there is always a way to recover/rebuild your data
-from RAW (should be immutable) layers where you should keep the
-required amount of historical data that could cover your worst-case
-scenarios.</p>
-</blockquote>
-<p>4- Security</p>
-<blockquote>
+</li>
+<li>
+<p><strong>Exploration</strong>: Every industry is different, but in many cases,
+there are certain data access patterns that will be common and found
+in the most frequent queries in your workloads - filtering and
+aggregations by dates, categories, or geographies &ndash; these are core,
+common patterns across many businesses. Identify from your
+assessment your most common filtering criteria, relate these to how
+much data is being read/discarded by top used queries and validate
+if the information on Data Lake is organized to favor your
+exploration performance expectations.</p>
+</li>
+<li>
+<p>From the queries identified in your design and in your assessment
+see if you effectively eliminate unnecessary partitions in your
+OPENROWSET path parameter or, in case of external tables, if
+additional indexing is required.</p>
+</li>
+</ul>
+<h2 id="reliability">
+  Reliability
+  <a class="anchor" href="#reliability">#</a>
+</h2>
+<ul>
+<li>
+<p><strong>Availability</strong>: Validate the requirements for availability that
+may have been identified during the assessment. While there are no
+specific SLAs for serverless and resources for query execution are
+being acquired on-demand, currently there is 30 min timeout for
+query execution. Identify the longest expected running queries from
+your assessment and validate against your serverless SQL design. Be
+aware that a 30 min timeout may break the expectations for your
+workload and appear to be a service problem.</p>
+</li>
+<li>
+<p><strong>Consistency</strong>: SQL Serverless is primarily for read workloads,
+validate if all consistency checks have been performed during the
+Data Lake data provisioning and formation process. Keep on your
+radar new capabilities like recent addition of Delta Lake
+open-source storage layer which provides support for ACID
+(Atomicity, Consistency, Isolation and Durability) guarantees for
+transactions and it allows you to implement effective lambda/kappa
+architectures to support both streaming and batch use cases.
+Evaluate your design for opportunities to apply new capabilities but
+not at the expense of your project&rsquo;s timeline or cost.</p>
+</li>
+<li>
+<p><strong>Backup</strong>: Review from your assessment your disaster recovery
+requirements. Validate against your serverless SQL design for
+recovery. SQL Serverless itself does not have its own storage layer
+and that would require handling snapshots and backup copies of your
+data. The data store accessed by serverless SQL is external (ADLS
+storage) review the recovery design in your project for these
+datasets.</p>
+</li>
+</ul>
+<h2 id="security">
+  Security
+  <a class="anchor" href="#security">#</a>
+</h2>
 <p>Organization of your data is also important for building flexible
 security foundations: in most cases different processes and users will
-require different permissions and access to specific sub-areas or your
+require different permissions and access to specific sub-areas of your
 Data Lake or logical Data Warehouse.</p>
-<p><strong>Data Storage</strong>: Check if typical Raw, Stage and Curated data lake
+<ul>
+<li>
+<p><strong>Data Storage</strong>: Using the information gathered during the
+assessment identify if typical Raw, Stage and Curated data lake
 areas need to be placed on the same Storage Account vs independent
-Storage Accounts. The latter might result in more flexibility in terms
-of roles and permissions and also adds additional IOPS capacity that
-might be needed in case your architecture must support heavy and
-simultaneous read/write workloads (potentially that could be a case of
-real time or IoT scenarios). Validate if you need to further segregate
-and keep your Sandboxed areas and Master Data areas on separate
-Accounts as well. Most of the users will not need to update and delete
-data and therefore do not need write permissions to your Data Lake,
-except Sandboxed and private areas.</p>
-<p>Check what requirements point down to features like <em>Always
-Encrypted</em>, <em>Dynamic Data Masking</em> or <em>Row Level Security</em> and
-availability of these in a specific scenario - like with OPENROWSET -
-and anticipate potential workarounds in case these requirements might
-be blocked by current feature availability.</p>
-<p>Additionally, check what would be the best authentication methods,
-i.e. AAD Service Principals, SAS, when and how Authentication
-pass-through can be leveraged and integrated in the exploration tool
-of choice of the customer.</p>
-</blockquote>
-<p>5- Other considerations</p>
-<blockquote>
-<p><strong>Best Practices</strong>: check if you have put in place our best practices
-and recommendations (Best practices for serverless SQL pool - Azure
-Synapse Analytics | Microsoft Docs). Special attention for filter
-optimization and proper collation for predicate push-down to work
-properly.</p>
-<p><del><strong>Service limits</strong>: additionally, check for current service limits
-like number of SQL Serverless Pools (1) per workspace, max query
-execution time (30 min), max number of columns that you can handle
-with OPENROWSET (1024), or what T-SQL surface area is supported, DML
-statements, etc.</del></p>
-</blockquote>
+Storage Accounts. The latter might result in more flexibility in
+terms of roles and permissions and also add additional IOPS capacity
+that might be needed if your architecture must support heavy and
+simultaneous read/write workloads (potentially that could be a case
+of real time or IoT scenarios). Validate if you need to further
+segregate and keep your Sandboxed areas and Master Data areas on
+separate Accounts as well. Most users will not need to update and
+delete data and therefore do not need write permissions to your Data
+Lake, except Sandboxed and private areas. Evaluate what you have
+identified from the assessment against the design.</p>
+</li>
+<li>
+<p>From your assessment information identify if any requirements point
+to features like <em>Always Encrypted</em>, <em>Dynamic Data Masking</em> or <em>Row
+Level Security.</em> Validate the availability of these features in
+specific scenarios - like with OPENROWSET &ndash; Review against your
+design and anticipate potential workarounds that may be required.</p>
+</li>
+<li>
+<p>From your assessment information identify what would be the best
+authentication methods, i.e. AAD Service Principals, SAS, when and
+how Authentication pass-through can be leveraged and integrated in
+the exploration tool of choice of the customer. Evaluate the design
+and validate that the best authentication method is part of the
+design.</p>
+</li>
+</ul>
+<h2 id="other-considerations">
+  Other considerations
+  <a class="anchor" href="#other-considerations">#</a>
+</h2>
+<p>Review your design and check if you have put in place our best practices
+and recommendations (<a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/best-practices-serverless-sql-pool">Best practices for serverless SQL pool - Azure
+Synapse
+Analytics</a>
+). Give special attention to filter optimization and proper collation to
+assure that predicate push-down works properly.</p>
+<h1 id="conclusion">
+  Conclusion
+  <a class="anchor" href="#conclusion">#</a>
+</h1>
+<p>Taking the time to evaluate your serverless SQL design against the
+information you gathered from the assessment will help ensure your SQ
+Serverless in Azure Synapse architecture is sound and meets your needs.</p>
 </article>
  
       
@@ -438,7 +463,7 @@ Azure Synapse &copy;2021 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Synapse homepage</a> or read our <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started">getting started guide</a> or the 
 <a href="https://techcommunity.microsoft.com/t5/azure-synapse-analytics/bg-p/AzureSynapseAnalyticsBlog">Azure Synapse Blog</a>. <br />
 Contact us: <a href="mailto:synapsefeedback@microsoft.com?subject=AzureSynapse.com%20Feedback">synapsefeedback@microsoft.com</a>.<br />
-Generated on Thu, Jul 15 2021 18:12:57 UTC
+Generated on Fri, Jul 16 2021 16:05:28 UTC
       </footer>
 
       
@@ -460,6 +485,17 @@ Generated on Thu, Jul 15 2021 18:12:57 UTC
 <nav id="TableOfContents">
   <ul>
     <li><a href="#serverless-sql-pool-design-evaluation">Serverless SQL Pool Design Evaluation</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#fit-gap-analysis">Fit Gap Analysis</a>
+      <ul>
+        <li><a href="#operational-excellence">Operational Excellence</a></li>
+        <li><a href="#performance-efficiency">Performance Efficiency</a></li>
+        <li><a href="#reliability">Reliability</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#other-considerations">Other considerations</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
 

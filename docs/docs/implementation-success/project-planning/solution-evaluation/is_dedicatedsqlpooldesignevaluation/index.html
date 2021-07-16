@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Dedicated SQL Pool Design Evaluation #  Azure Synapse Analytics is an analytics service that brings together enterprise data warehousing and Big Data analytics. Dedicated SQL pool (formerly SQL DW) refers to the enterprise data warehousing features that are available in Azure Synapse Analytics.
-Synapse SQL leverages a scale out architecture to distribute computational processing of data across multiple nodes. Compute is separate from storage, which enables you to scale compute independently of the data in your system.">
+<meta name="description" content="Dedicated SQL Pool Design Evaluation #  Overview #  The purpose of this evaluation is to validate the solution design&rsquo;s dedicated SQL Pool components and to identify early on any design issues and, to validate the design meets common guidelines. By evaluating the design before solution development begins blockers and unexpected design changes will be avoided and protect the project&rsquo;s timeline and budget.
+Dedicated SQL pool refers to the enterprise relational data warehousing features that are available in Azure Synapse Analytics.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
-<meta property="og:description" content="Dedicated SQL Pool Design Evaluation #  Azure Synapse Analytics is an analytics service that brings together enterprise data warehousing and Big Data analytics. Dedicated SQL pool (formerly SQL DW) refers to the enterprise data warehousing features that are available in Azure Synapse Analytics.
-Synapse SQL leverages a scale out architecture to distribute computational processing of data across multiple nodes. Compute is separate from storage, which enables you to scale compute independently of the data in your system." />
+<meta property="og:description" content="Dedicated SQL Pool Design Evaluation #  Overview #  The purpose of this evaluation is to validate the solution design&rsquo;s dedicated SQL Pool components and to identify early on any design issues and, to validate the design meets common guidelines. By evaluating the design before solution development begins blockers and unexpected design changes will be avoided and protect the project&rsquo;s timeline and budget.
+Dedicated SQL pool refers to the enterprise relational data warehousing features that are available in Azure Synapse Analytics." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_dedicatedsqlpooldesignevaluation/" /><meta property="article:section" content="docs" />
 
@@ -18,7 +18,7 @@ Synapse SQL leverages a scale out architecture to distribute computational proce
 <link rel="icon" href="/Synapse-Success-By-Design/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/Synapse-Success-By-Design/book.min.b41cdcc69680b20b305adc2d69f998108e387359ce0e8d2d5f091e788a5bb27c.css" integrity="sha256-tBzcxpaAsgswWtwtafmYEI44c1nODo0tXwkeeIpbsnw=" crossorigin="anonymous">
   <script defer src="/Synapse-Success-By-Design/flexsearch.min.js"></script>
-  <script defer src="/Synapse-Success-By-Design/en.search.min.03576617a3500aa663f13197557a8600ebfb2e4bf84a24c7c0108ccde48aaa8e.js" integrity="sha256-A1dmF6NQCqZj8TGXVXqGAOv7Lkv4SiTHwBCMzeSKqo4=" crossorigin="anonymous"></script>
+  <script defer src="/Synapse-Success-By-Design/en.search.min.4b517cd334e8536162396a743242d9d64ea8734bf052b551ed91130acf2be675.js" integrity="sha256-S1F80zToU2FiOWp0MkLZ1k6oc0vwUrVR7ZETCs8r5nU=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -198,18 +198,17 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#dedicated-sql-pool-design-evaluation">Dedicated SQL Pool Design Evaluation</a>
+    <li><a href="#dedicated-sql-pool-design-evaluation">Dedicated SQL Pool Design Evaluation</a></li>
+    <li><a href="#overview">Overview</a>
       <ul>
-        <li><a href="#synapse-assessment">Synapse Assessment</a></li>
-        <li><a href="#define-target-architecture">Define Target Architecture</a></li>
+        <li><a href="#assessment-analysis">Assessment Analysis</a></li>
+        <li><a href="#reviewing-the-target-architecture">Reviewing the Target Architecture</a></li>
         <li><a href="#migration">Migration</a></li>
-        <li><a href="#project-team">Project Team</a></li>
-        <li><a href="#best-practices-and-recommendations">Best Practices and recommendations</a></li>
-        <li><a href="#scope-and-work-sprints">Scope and work sprints</a></li>
-        <li><a href="#testing-methodology">Testing methodology</a></li>
-        <li><a href="#success-criteria">Success Criteria</a></li>
+        <li><a href="#feature-gaps">Feature Gaps</a></li>
+        <li><a href="#dedicated-sql-pool-testing">Dedicated SQL Pool Testing</a></li>
       </ul>
     </li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
 
@@ -227,239 +226,116 @@ https://github.com/alex-shpak/hugo-book
   Dedicated SQL Pool Design Evaluation
   <a class="anchor" href="#dedicated-sql-pool-design-evaluation">#</a>
 </h1>
-<p>Azure Synapse Analytics is an analytics service that brings together
-enterprise data warehousing and Big Data analytics. Dedicated SQL pool
-(formerly SQL DW) refers to the enterprise data warehousing features
-that are available in Azure Synapse Analytics.</p>
+<h1 id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
+</h1>
+<p>The purpose of this evaluation is to validate the solution design&rsquo;s
+dedicated SQL Pool components and to identify early on any design issues
+and, to validate the design meets common guidelines. By evaluating the
+design before solution development begins blockers and unexpected design
+changes will be avoided and protect the project&rsquo;s timeline and budget.</p>
+<p>Dedicated SQL pool refers to the enterprise relational data warehousing
+features that are available in Azure Synapse Analytics.</p>
 <p>Synapse SQL leverages a scale out architecture to distribute
 computational processing of data across multiple nodes. Compute is
 separate from storage, which enables you to scale compute independently
 of the data in your system.</p>
-<p><img src="media/image1.png" style="width:3.2565in;height:2.50698in" alt="Dedicated SQL pool (formerly SQL DW) architecture" /></p>
-<p>For dedicated SQL pool, the unit of scale is an abstraction of compute
-power that is known as a <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/resource-consumption-models">data warehouse
-unit</a>.</p>
+<p><img src="../../../images/workspacedesignevaluationpicture1.png" alt="Dedicated SQL pool architecture" /></p>
 <p>Review: <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture?toc=/azure/synapse-analytics/toc.json&amp;bc=/azure/synapse-analytics/breadcrumb/toc.json">Dedicated SQL pool architecture - Azure Synapse Analytics |
 Microsoft
 Docs</a></p>
-<p>To determine if Synapse is a good fit for a migration, we need to
-understand what is currently being used in the original system and
-determine if there are Synapse gaps that can be a potential blocker.</p>
-<h2 id="synapse-assessment">
-  Synapse Assessment
-  <a class="anchor" href="#synapse-assessment">#</a>
+<h2 id="assessment-analysis">
+  Assessment Analysis
+  <a class="anchor" href="#assessment-analysis">#</a>
 </h2>
-<p>Base Checklist:</p>
-<ul>
-<li>Identity the Source Workload Type (DW/OLTP)?</li>
-</ul>
-<!-- -->
-<ul>
-<li>
-<p>Identity the Source ETL/ELT Tool</p>
-<ul>
-<li>
-<p>Does it support Synapse?</p>
-</li>
-<li>
-<p>How much work is needed to move from Source to Synapse?</p>
-</li>
-</ul>
-</li>
-</ul>
-<!-- -->
-<ul>
-<li>
-<p>Identify the Data Sources</p>
-</li>
-<li>
-<p>Identify the Data Ingestion processes</p>
-<ul>
-<li>
-<p>Ad-Hoc?</p>
-</li>
-<li>
-<p>Batch</p>
-</li>
-<li>
-<p>Files</p>
-</li>
-<li>
-<p>Stream</p>
-</li>
-<li>
-<p>Etc.</p>
-</li>
-</ul>
-</li>
-</ul>
-<!-- -->
-<ul>
-<li>
-<p>Data Consumption Platform</p>
-<ul>
-<li>
-<p>Does the current Tool support Synapse?</p>
-</li>
-<li>
-<p>Type of access (DQ/Import)</p>
-</li>
-<li>
-<p>Max users / Concurrent users</p>
-</li>
-</ul>
-</li>
-</ul>
-<!-- -->
-<ul>
-<li>
-<p>Synapse Sizing (How do choose Synapse DWU)</p>
-<ul>
-<li>
-<p>Identify Source Number of Nodes/Memory/CPUs</p>
-</li>
-<li>
-<p>Source Data Volume</p>
-</li>
-<li>
-<p>Source Concurrency</p>
-</li>
-<li>
-<p>Determine “Active Data Set”</p>
-</li>
-</ul>
-</li>
-</ul>
-<!-- -->
-<ul>
-<li>
-<p>Feature Gaps</p>
-<ul>
-<li>
-<p>Identify unsupported data types (ex. Xml, arrays, spatial).</p>
-</li>
-<li>
-<p>Identify unsupported features (ex: Cursors)</p>
-</li>
-<li>
-<p>Are there gaps without a work around?</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>@Tammy</p>
-<p>We have an internal chart with the Synapse sizing recommendations, but I
-don’t know if it’s public or not.</p>
-<p><img src="media/image2.png" style="width:4.17545in;height:2.35728in" alt="Table Description automatically generated" /></p>
-<h2 id="define-target-architecture">
-  Define Target Architecture
-  <a class="anchor" href="#define-target-architecture">#</a>
+<p>During your initial assessment you collected information about how your
+existing system was deployed and the details of structures that were
+implemented.</p>
+<p>From the assessment review, you will be able to understand what the gaps
+are between what is implemented and what should be in place to get
+optimal performance. For example, the impact of having round robin table
+vs Hash distributed tables or the performance benefits of correctly
+using replicated tables.</p>
+<h2 id="reviewing-the-target-architecture">
+  Reviewing the Target Architecture
+  <a class="anchor" href="#reviewing-the-target-architecture">#</a>
 </h2>
-<p>Add url for MDW Architectures.</p>
-<p>Review: <a href="https://docs.microsoft.com/en-us/azure/architecture/data-guide/">Azure Data Architecture Guide - Azure Architecture Center |
-Microsoft
+<p>For the successful deployment of a dedicated SQL Pool, it is important
+to have an architecture well aligned with the business requirements to
+make sure that the system responds to all your business needs.</p>
+<p>There are several architectural suggestions for dedicated SQL Pools in
+the Microsoft documentation and if necessary you can review the <a href="https://docs.microsoft.com/en-us/azure/architecture/data-guide/">Azure
+Data Architecture Guide - Azure Architecture Center | Microsoft
 Docs</a></p>
-<p>Reuse and Re-Write?</p>
-<p>The purpose of the following is to try to reduce blockers and avoid some
-issues related to Synapse SQL Serverless pools frequently found on the
-course of the implementation of modern data architectures based on
-<strong>Azure Synapse</strong> or later in the production stages. To be consistent
-with guiding tenets of <em>Well Architected Framework</em> (<a href="https://docs.microsoft.com/en-us/azure/architecture/framework/">Microsoft Azure
-Well-Architected Framework - Azure Architecture Center | Microsoft
-Docs</a>)
-that aim to improve the quality of a workload we are going to try to
-reuse the main pillars that will allow better structure of the
-information and also help to introduce necessary checkpoints in the
-corresponding phases of you project execution.</p>
 <h2 id="migration">
   Migration
   <a class="anchor" href="#migration">#</a>
 </h2>
-<p>Review: <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/migration-guides/migrate-to-synapse-analytics-guide?tabs=migratefromSQLServer">Azure Synapse Analytics: Migration guide - Azure Synapse
-Analytics | Microsoft
-Docs</a></p>
-<h2 id="project-team">
-  Project Team
-  <a class="anchor" href="#project-team">#</a>
-</h2>
-<p>Topic: The project must have the right number of people with the right
-skillset (Synapse is not SQL)</p>
-<h2 id="best-practices-and-recommendations">
-  Best Practices and recommendations
-  <a class="anchor" href="#best-practices-and-recommendations">#</a>
-</h2>
-<p>Please review our best practices from official documentation</p>
+<p>A migration project for synapse is very similar to any other Database
+migration. You will need to take in consideration that there might be
+differences between the original system and the Synapse.</p>
+<p>Make sure that you have a clear migration path established for:</p>
 <ul>
 <li>
-<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool">Best practices for dedicated SQL pools - Azure Synapse Analytics |
-Microsoft
-Docs</a></p>
+<p>DDL/DML/Security objects/etc.</p>
 </li>
 <li>
-<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading?toc=/azure/synapse-analytics/toc.json&amp;bc=/azure/synapse-analytics/breadcrumb/toc.json">Instead of ETL, design ELT - Azure Synapse Analytics | Microsoft
-Docs</a></p>
+<p>Data migration (export from source, transit to cloud)</p>
 </li>
 <li>
-<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/data-loading-best-practices">Data loading best practices - Azure Synapse Analytics | Microsoft
-Docs</a></p>
+<p>Initial Data load to Synapse</p>
 </li>
 <li>
-<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-best-practices">Development best practices for Synapse SQL - Azure Synapse
-Analytics | Microsoft
-Docs</a></p>
+<p>Login/Users</p>
 </li>
 <li>
-<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching">Performance tuning with result set caching - Azure Synapse
-Analytics | Microsoft
-Docs</a></p>
+<p>Data Access control (for ex. Row-Level Security)</p>
 </li>
 <li>
-<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview">Designing tables - Azure Synapse Analytics | Microsoft
-Docs</a></p>
-</li>
-<li>
-<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-loops">Using T-SQL loops - Azure Synapse Analytics | Microsoft
-Docs</a></p>
-</li>
-<li>
-<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-stored-procedures">Using stored procedures - Azure Synapse Analytics | Microsoft
-Docs</a></p>
-</li>
-<li>
-<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions">Optimizing transactions - Azure Synapse Analytics | Microsoft
-Docs</a></p>
-</li>
-<li>
-<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management?view=azure-sqldw-latest">Workload management - Azure Synapse Analytics | Microsoft
-Docs</a></p>
-</li>
-<li>
-<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring?view=azure-sqldw-latest">Manageability and monitoring - overview - Azure Synapse Analytics
-| Microsoft
-Docs</a></p>
-</li>
-<li>
-<p><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-integrate?view=azure-sqldw-latest">Build integrated solutions - Azure Synapse Analytics | Microsoft
-Docs</a></p>
+<p>Time plan to execute.</p>
 </li>
 </ul>
-<h2 id="scope-and-work-sprints">
-  Scope and work sprints
-  <a class="anchor" href="#scope-and-work-sprints">#</a>
+<p>You can also review the <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/migration-guides/migrate-to-synapse-analytics-guide?tabs=migratefromSQLServer">Azure Synapse Analytics: Migration guide -
+Azure Synapse Analytics | Microsoft
+Docs</a></p>
+<h2 id="feature-gaps">
+  Feature Gaps
+  <a class="anchor" href="#feature-gaps">#</a>
 </h2>
-<p>Make sure that you define the scope of the work, aligned with a project
-plan with deliverables and milestones, to avoid unwanted surprises
-during the delivery.</p>
-<p>Engage a project manager into the team to assure that all work is
-correctly tracked, and that you are not getting into delays.</p>
-<h2 id="testing-methodology">
-  Testing methodology
-  <a class="anchor" href="#testing-methodology">#</a>
+<p>From the information gathered during your assessment and the solution
+design verify that any unsupported features from the existing
+environment that will be required in the solution have been identified
+and that a solution for supportability has been designed or that there
+is time built into the project plan to further identify these
+unsupported features and develop solutions and workarounds.</p>
+<p>Some examples of unsupported features in dedicated SQL Pools are:</p>
+<ul>
+<li>
+<p>Identify unsupported data types (ex. Xml, arrays, spatial)</p>
+</li>
+<li>
+<p>Identify unsupported features (ex: Cursors)</p>
+</li>
+</ul>
+<h2 id="dedicated-sql-pool-testing">
+  Dedicated SQL Pool Testing
+  <a class="anchor" href="#dedicated-sql-pool-testing">#</a>
 </h2>
-<h2 id="success-criteria">
-  Success Criteria
-  <a class="anchor" href="#success-criteria">#</a>
-</h2>
+<p>Just like any other project, your project should include the necessary
+set of tests to make sure that your dedicated SQL Pool responds as
+required to the needs of your business. It is critical to test at least
+for data quality, data integration, security, and performance.</p>
+<h1 id="conclusion">
+  Conclusion
+  <a class="anchor" href="#conclusion">#</a>
+</h1>
+<p>Taking the time to evaluate the design against the information gathered
+during the assessment and the capabilities of a dedicated SQL Pool will
+help assure that the best design for your solution will be implemented,
+and it will reduce the number of unexpected development or
+implementation issues that may be encountered during solution
+development.</p>
 </article>
  
       
@@ -485,7 +361,7 @@ Azure Synapse &copy;2021 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Synapse homepage</a> or read our <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started">getting started guide</a> or the 
 <a href="https://techcommunity.microsoft.com/t5/azure-synapse-analytics/bg-p/AzureSynapseAnalyticsBlog">Azure Synapse Blog</a>. <br />
 Contact us: <a href="mailto:synapsefeedback@microsoft.com?subject=AzureSynapse.com%20Feedback">synapsefeedback@microsoft.com</a>.<br />
-Generated on Thu, Jul 15 2021 18:12:57 UTC
+Generated on Fri, Jul 16 2021 16:05:28 UTC
       </footer>
 
       
@@ -506,18 +382,17 @@ Generated on Thu, Jul 15 2021 18:12:57 UTC
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#dedicated-sql-pool-design-evaluation">Dedicated SQL Pool Design Evaluation</a>
+    <li><a href="#dedicated-sql-pool-design-evaluation">Dedicated SQL Pool Design Evaluation</a></li>
+    <li><a href="#overview">Overview</a>
       <ul>
-        <li><a href="#synapse-assessment">Synapse Assessment</a></li>
-        <li><a href="#define-target-architecture">Define Target Architecture</a></li>
+        <li><a href="#assessment-analysis">Assessment Analysis</a></li>
+        <li><a href="#reviewing-the-target-architecture">Reviewing the Target Architecture</a></li>
         <li><a href="#migration">Migration</a></li>
-        <li><a href="#project-team">Project Team</a></li>
-        <li><a href="#best-practices-and-recommendations">Best Practices and recommendations</a></li>
-        <li><a href="#scope-and-work-sprints">Scope and work sprints</a></li>
-        <li><a href="#testing-methodology">Testing methodology</a></li>
-        <li><a href="#success-criteria">Success Criteria</a></li>
+        <li><a href="#feature-gaps">Feature Gaps</a></li>
+        <li><a href="#dedicated-sql-pool-testing">Dedicated SQL Pool Testing</a></li>
       </ul>
     </li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
 

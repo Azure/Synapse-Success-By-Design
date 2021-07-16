@@ -115,8 +115,8 @@ In this guide we will evaluate the design of the Data Integration components of 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_dedicatedsqlpooldesignevaluation/</guid>
-      <description>Dedicated SQL Pool Design Evaluation #  Azure Synapse Analytics is an analytics service that brings together enterprise data warehousing and Big Data analytics. Dedicated SQL pool (formerly SQL DW) refers to the enterprise data warehousing features that are available in Azure Synapse Analytics.
-Synapse SQL leverages a scale out architecture to distribute computational processing of data across multiple nodes. Compute is separate from storage, which enables you to scale compute independently of the data in your system.</description>
+      <description>Dedicated SQL Pool Design Evaluation #  Overview #  The purpose of this evaluation is to validate the solution design&amp;rsquo;s dedicated SQL Pool components and to identify early on any design issues and, to validate the design meets common guidelines. By evaluating the design before solution development begins blockers and unexpected design changes will be avoided and protect the project&amp;rsquo;s timeline and budget.
+Dedicated SQL pool refers to the enterprise relational data warehousing features that are available in Azure Synapse Analytics.</description>
     </item>
     
     <item>
@@ -125,7 +125,7 @@ Synapse SQL leverages a scale out architecture to distribute computational proce
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_serverlesssqlpooldesignevaluation/</guid>
-      <description>Serverless SQL Pool Design Evaluation #  Separation of storage and compute as a design principle for modern data and analytical platforms and services has been a trend and frequently used pattern since it provided cost savings and more flexibility in on-demand scaling of your storage and compute independently. Synapse SQL Serverless (Serverless SQL pool - Azure Synapse Analytics | Microsoft Docs) further extends this pattern and adds an important capability to query your data directly from your data lake storage and not to worry about compute management while leveraging self-service types of workload.</description>
+      <description>Serverless SQL Pool Design Evaluation #  Overview #  Separation of storage and compute as a design principle for modern data and analytical platforms and services has been a trend and frequently used pattern, it provides cost savings and more flexibility in on-demand scaling of your storage and compute independently. Synapse SQL Serverless further extends this pattern and adds an important capability to query your data directly from your data lake storage and not to worry about compute management while leveraging self-service types of workloads.</description>
     </item>
     
     <item>
@@ -134,9 +134,8 @@ Synapse SQL leverages a scale out architecture to distribute computational proce
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/project-planning/solution-evaluation/is_sparkpooldesignevaluation/</guid>
-      <description>Spark Pool Design Evaluation #  Apache Spark in Synapse brings the Apache Spark parallel data processing to the Azure Synapse.
-Fit Gap Analysis #  When planning to implement Spark pools with Azure Synapse, you first need to ensure Apache Spark Pools in Azure Synapse is the best fit for your workload. These are the items to consider for utilizing Apache Spark in Synapse:
-  Does your workload require data engineering/data preparation?</description>
+      <description>Spark Pool Design Evaluation #  Overview #  Apache Spark in Synapse brings the Apache Spark parallel data processing to the Azure Synapse. This evaluation provides direction on when Apache Spark in Azure Synapse is or is not the best fit for your workload and will discusses items to consider when you are evaluating your solution design elements that incorporate Spark Pools.
+Fit Gap Analysis #  When planning to implement Spark pools with Azure Synapse, you first need to ensure Apache Spark Pools in Azure Synapse is the best fit for your workload.</description>
     </item>
     
     <item>
