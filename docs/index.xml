@@ -8,6 +8,16 @@
     <language>en-us</language><atom:link href="https://azure.github.io/Synapse-Success-By-Design/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
+      <link>https://azure.github.io/Synapse-Success-By-Design/docs/guidance/guidancedocs/configuring_your_azure_synapse_workspace_to_use_access_control_lists/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Synapse-Success-By-Design/docs/guidance/guidancedocs/configuring_your_azure_synapse_workspace_to_use_access_control_lists/</guid>
+      <description>Configuring Your Azure Synapse Workspace to Use Access Control Lists #  By: Khendr&amp;rsquo;a Reid
+When you set up your Azure Synapse workspace, one of the steps you will need to take is to grant Storage Blob Data Contributor access to the primary storage account for both the AAD Users and the workspace managed identity (workspace MSI). Storage Blob Data Contributor is an Azure-based access control (Azure RBAC) which enables the workspace users and the managed identity to read, write, and delete containers and files in the default ADLS Gen2 storage account.</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/is_comingsoon/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

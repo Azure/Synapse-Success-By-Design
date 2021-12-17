@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Configuring Your Azure Synapse Workspace to Use Access Control Lists #  By: Khendr&rsquo;a Reid
+When you set up your Azure Synapse workspace, one of the steps you will need to take is to grant Storage Blob Data Contributor access to the primary storage account for both the AAD Users and the workspace managed identity (workspace MSI). Storage Blob Data Contributor is an Azure-based access control (Azure RBAC) which enables the workspace users and the managed identity to read, write, and delete containers and files in the default ADLS Gen2 storage account.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="Configuring Your Azure Synapse Workspace to Use Access Control Lists #  By: Khendr&rsquo;a Reid
+When you set up your Azure Synapse workspace, one of the steps you will need to take is to grant Storage Blob Data Contributor access to the primary storage account for both the AAD Users and the workspace managed identity (workspace MSI). Storage Blob Data Contributor is an Azure-based access control (Azure RBAC) which enables the workspace users and the managed identity to read, write, and delete containers and files in the default ADLS Gen2 storage account." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://azure.github.io/Synapse-Success-By-Design/docs/guidance/guidancedocs/configuring_your_azure_synapse_workspace_to_use_access_control_lists/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Configuring Your Azure Synapse Workspace to Use Access Control Lists | Success by Design</title>
+<link rel="manifest" href="/Synapse-Success-By-Design/manifest.json">
+<link rel="icon" href="/Synapse-Success-By-Design/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/Synapse-Success-By-Design/book.min.b41cdcc69680b20b305adc2d69f998108e387359ce0e8d2d5f091e788a5bb27c.css" integrity="sha256-tBzcxpaAsgswWtwtafmYEI44c1nODo0tXwkeeIpbsnw=" crossorigin="anonymous">
+  <script defer src="/Synapse-Success-By-Design/flexsearch.min.js"></script>
+  <script defer src="/Synapse-Success-By-Design/en.search.min.34d6fec212622f813a15a48a72af5cc952b327acd2a79d434f51db9fa649bf3f.js" integrity="sha256-NNb&#43;whJiL4E6FaSKcq9cyVKzJ6zSp51DT1Hbn6ZJvz8=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/Synapse-Success-By-Design/"><img src="/Synapse-Success-By-Design/images/azure-icon.png" alt="Logo" /><span>Success by Design</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/home/" class="">Home</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/implementation-success/" class="">Implementation Success</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/poc_sucess/" class="">POC Success</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/guidance/" class="">Guidance</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/blogs/" class="">Blogs</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/video_series/" class="">Video Series</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/tools-utilities/" class="">Tools Utilities</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Synapse-Success-By-Design/docs/whats-new/" class="">Whats New</a>
+  
+
+          
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Synapse-Success-By-Design/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Configuring Your Azure Synapse Workspace to Use Access Control Lists</strong>
+
+  <label for="toc-control">
+    
+    <img src="/Synapse-Success-By-Design/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#configuring-your-azure-synapse-workspace-to-use-access-control-lists">Configuring Your Azure Synapse Workspace to Use Access Control Lists</a>
+      <ul>
+        <li><a href="#synapse-access-control-options">Synapse Access Control Options</a></li>
+        <li><a href="#setting-acls">Setting ACLs</a></li>
+        <li><a href="#primary-storage-account-acls">Primary Storage Account ACLs</a></li>
+        <li><a href="#linked-storage-account-acls">Linked Storage Account ACLs</a></li>
+        <li><a href="#applying-acls-recursively">Applying ACLs Recursively</a></li>
+        <li><a href="#browsing-adls-gen-2-set-with-acls-in-synapse-workspace">Browsing ADLS Gen 2 Set with ACLs in Synapse Workspace</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><p><img src="../../../images/sbd_synapselogo.png" alt="SBD Logo" /></p>
+<h1 id="configuring-your-azure-synapse-workspace-to-use-access-control-lists">
+  Configuring Your Azure Synapse Workspace to Use Access Control Lists
+  <a class="anchor" href="#configuring-your-azure-synapse-workspace-to-use-access-control-lists">#</a>
+</h1>
+<p>By: Khendr&rsquo;a Reid</p>
+<p>When you set up your Azure Synapse workspace, one of the steps you will need to take is to grant Storage Blob Data Contributor access to the primary storage account for both the <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/security/how-to-set-up-access-control#step-2-prepare-your-adls-gen2-storage-account">AAD Users</a> and the <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/security/how-to-set-up-access-control#step-4-grant-the-workspace-msi-access-to-the-default-storage-container">workspace managed identity (workspace MSI)</a>. <a href="https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor">Storage Blob Data Contributor</a> is an Azure-based access control (Azure RBAC) which enables the workspace users and the managed identity to read, write, and delete containers and files in the default ADLS Gen2 storage account. This is the recommended approach for most organizations as this allows the workspace administrator to seamlessly grant access to users to be able to leverage all of the capabilities of Azure Synapse.</p>
+<p>However, some organizations have security requirements that prevent granting Azure RBAC policies to users and instead require fine-grained access controls granted at the container, directory, or even file level through access control lists (ACLs). Scenarios where this requirement may arise include the following:</p>
+<ul>
+<li>Sharing access to only specific containers, directories, or files between multiple development teams within an organization.</li>
+<li>Setting different access policies to specific containers, directories, or files between administrators and developers.</li>
+<li>Setting different access policies to specific containers, directories, or files between internal and external users of a data platform.</li>
+</ul>
+<p>Below are the instructions for how to set up an Azure Synapse workspace with ACL permissions:</p>
+<p>First, it is recommended that you create security groups for your AAD Users and use these security groups to grant permissions. Recommendations for these security groups can be found <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/security/how-to-set-up-access-control#step-1-set-up-security-groups">here</a>.</p>
+<p>Next, once you have created the security groups, you will need the Synapse workspace MSI. This can be found by navigating to your Azure Synapse workspace and copying the Managed Identity object ID.</p>
+<p>Azure Synapse Analytics leverages the primary storage account for several integration scenarios. In addition to this primary storage account, we recommend creating a separate Azure Data Lake Gen 2 storage account as a <a href="https://docs.microsoft.com/en-us/azure/data-factory/concepts-linked-services?toc=/azure/synapse-analytics/toc.json&amp;bc=/azure/synapse-analytics/breadcrumb/toc.json#data-store-linked-services">linked service</a> in Azure Synapse to manage your data. To enable both these integration scenarios and provide fine-grained access control you will need to either <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/security/how-to-set-up-access-control">grant RBAC to the primary storage account</a> and ACLs to the linked storage account (Option #2 below) or, if required, you can use ACLs to manage both (Option #3 below). The ACLs below need to be provided to <strong>both</strong> the security groups and the workspace MSI using the object ID that was copied earlier.
+</br>
+</br></p>
+<h2 id="synapse-access-control-options">
+  Synapse Access Control Options
+  <a class="anchor" href="#synapse-access-control-options">#</a>
+</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"><center>Storage Account</center></th>
+<th style="text-align:center"><center>Used for</center></th>
+<th style="text-align:center"><center>Access Control</center></th>
+<th style="text-align:center"><center>Result</center></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Option #1</td>
+<td style="text-align:center"><table> <tbody>  <tr>  <td>Primary Storage</td> </tr>  <tr>  <td>Linked Storage</td> </tr> </tbody>  </table></td>
+<td style="text-align:center"><table> <tbody>  <tr>  <td>Integration Scenarios</td> </tr>  <tr>  <td>Business Data</td> </tr> </tbody>  </table></td>
+<td style="text-align:center"><table> <tbody>  <tr>  <td>RBAC</td> </tr>  <tr>  <td>RBAC</td> </tr> </tbody>  </table></td>
+<td style="text-align:center">No fine-grained accesscontrol</td>
+</tr>
+<tr>
+<td style="text-align:center">Option #2</td>
+<td style="text-align:center"><table> <tbody>  <tr>  <td>Primary Storage</td> </tr>  <tr>  <td>Linked Storage</td> </tr> </tbody>  </table></td>
+<td style="text-align:center"><table> <tbody><tr><td>Integration Scenarios</td> </tr>  <tr>  <td>Business Data</td></tr></tbody></table></td>
+<td style="text-align:center"><table> <tbody><tr><td>RBAC</td> </tr>  <tr>  <td>ACLs</td> </tr> </tbody>  </table></td>
+<td style="text-align:center">Fine-grained access on business data</td>
+</tr>
+<tr>
+<td style="text-align:center">Option #3</td>
+<td style="text-align:center"><table> <tbody>  <tr>  <td>Primary Storage</td> </tr>  <tr>  <td>Linked Storage</td> </tr> </tbody>  </table></td>
+<td style="text-align:center"><table> <tbody>  <tr>  <td>Integration Scenarios</td> </tr>  <tr>  <td>Business Data</td> </tr> </tbody>  </table></td>
+<td style="text-align:center"><table> <tbody>  <tr>  <td>ACLs</td> </tr>  <tr>  <td>ACLs</td> </tr> </tbody>  </table></td>
+<td style="text-align:center">Fine-grained access on business data, integration scenarios</td>
+</tr>
+</tbody>
+</table>
+<h2 id="setting-acls">
+  Setting ACLs
+  <a class="anchor" href="#setting-acls">#</a>
+</h2>
+<p>These permissions can be managed from the Synapse Studio, <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-acl-azure-portal">Azure Portal</a>, or <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-explorer-acl">Azure Storage Explorer</a>, <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-acl-powershell">Powershell</a>, <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-acl-cli">Azure CLI</a>, and Azure SDKs. However, for the root/container folder (‘/’), this will need to be done from the Azure Portal or Azure Storage Explorer.
+</br>
+</br></p>
+<h2 id="primary-storage-account-acls">
+  Primary Storage Account ACLs
+  <a class="anchor" href="#primary-storage-account-acls">#</a>
+</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">/</th>
+<th style="text-align:center">synapse</th>
+<th style="text-align:center">workspaces</th>
+<th style="text-align:center">&lt;&lsquo;workspacename&rsquo;&gt;</th>
+<th style="text-align:center">warehouse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Access Permisions</td>
+<td style="text-align:center">-WX</td>
+<td style="text-align:center">&ndash;X</td>
+<td style="text-align:center">&ndash;X</td>
+<td style="text-align:center">&ndash;X</td>
+<td style="text-align:center">RWX</td>
+</tr>
+<tr>
+<td style="text-align:center">Default Permissions</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">RWX</td>
+</tr>
+</tbody>
+</table>
+<p><em>The <strong>warehouse</strong> container is where the Spark table metadata is stored so these permissions allow the user to leverage Spark SQL. The default permission on the warehouse folder allows for any Spark tables created to inherit RWX permissions for the AAD users and workspace MSI.</em>
+</br>
+</br>
+</br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">/</th>
+<th style="text-align:center">synapse</th>
+<th style="text-align:center">sparkpools</th>
+<th style="text-align:center">&lt;&lsquo;sparkpoolname&rsquo;&gt;</th>
+<th style="text-align:center">sparkpoolinstances</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Access Permisions</td>
+<td style="text-align:center">-WX</td>
+<td style="text-align:center">&ndash;X</td>
+<td style="text-align:center">&ndash;X</td>
+<td style="text-align:center">&ndash;X</td>
+<td style="text-align:center">RWX</td>
+</tr>
+<tr>
+<td style="text-align:center">Default Permissions</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">RWX</td>
+</tr>
+</tbody>
+</table>
+<p><em>These permissions enable the <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/synapse-spark-sql-pool-import-export">Azure Synapse Apache Spark to Synapse SQL connector</a> to work for transferring data to and from Spark and Synapse SQL.</em></p>
+<p><em>The -W- permission on the root folder allows AAD users and the workspace MSI to create folders in the root directory.</em></p>
+<p>To enable scenarios where the workspace MSI is leveraged for authentication such as running Dataflows and Apache Spark notebooks in Synapse Pipelines, these additional ACLs are required for the Workspace MSI:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">/</th>
+<th style="text-align:center">tmp</th>
+<th style="text-align:center">hive</th>
+<th style="text-align:center">&lt;&lsquo;trusted-service-user&rsquo;&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Access Permisions</td>
+<td style="text-align:center">-WX</td>
+<td style="text-align:center">&ndash;X</td>
+<td style="text-align:center">&ndash;X</td>
+<td style="text-align:center">RWX</td>
+</tr>
+<tr>
+<td style="text-align:center">Default Permissions</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">RWX</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">/</th>
+<th style="text-align:center">user</th>
+<th style="text-align:center">trusted-service</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Access Permisions</td>
+<td style="text-align:center">-WX</td>
+<td style="text-align:center">RWX</td>
+<td style="text-align:center">RWX</td>
+</tr>
+<tr>
+<td style="text-align:center">Default Permissions</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">RWX</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linked-storage-account-acls">
+  Linked Storage Account ACLs
+  <a class="anchor" href="#linked-storage-account-acls">#</a>
+</h2>
+<p>In addition, all directories created will require the following ACL permissions for both relevant security groups and the workspace MSI:</p>
+<ul>
+<li>Directories: RWX</li>
+<li>Files: RW-</li>
+</ul>
+<p>R&ndash;: permission on the directories allow for listing directories and files for scenarios such as using <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/microsoft-spark-utilities?pivots=programming-language-python">Microsoft Spark Utilities</a>.</br>
+R&ndash;: permission on files is required for Serverless SQL pools to access and query files.</br>
+-W-: permission allows for writing and overwriting files and directories with Apache Spark pools.</br>
+&ndash;X: permission on directories is required to allow Serverless SQL pools to traverse directories.</p>
+<h2 id="applying-acls-recursively">
+  Applying ACLs Recursively
+  <a class="anchor" href="#applying-acls-recursively">#</a>
+</h2>
+<p>While the <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control#types-of-acls">default permissions</a> will apply ACLs recursively for new files created in those directories, you will also need to apply ACLs recursively for existing files. This can be done using <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-explorer-acl">Azure Storage Explorer</a>, <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-acl-powershell">Powershell</a>, or <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-acl-cli">Azure CLI</a>.</p>
+<h2 id="browsing-adls-gen-2-set-with-acls-in-synapse-workspace">
+  Browsing ADLS Gen 2 Set with ACLs in Synapse Workspace
+  <a class="anchor" href="#browsing-adls-gen-2-set-with-acls-in-synapse-workspace">#</a>
+</h2>
+<p>Once you have configured your primary or linked storage accounts to utilize ACLs, you will need to connect the container or folders in the storage account to your Synapse workspace to allow browsing of files and folders from Synapse Studio.
+Instructions on how to set up this configuration can be found <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/how-to-access-container-with-access-control-lists">here</a>.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        <hr />
+Azure Synapse &copy;2021 <br />
+Visit the <a href="https://azure.microsoft.com/services/synapse-analytics/">Azure Synapse homepage</a> or read our <a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started">getting started guide</a> or the 
+<a href="https://techcommunity.microsoft.com/t5/azure-synapse-analytics/bg-p/AzureSynapseAnalyticsBlog">Azure Synapse Blog</a>. <br />
+Product Feedback: <a href="https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8#">Azure Synapse Analytics</a>.<br />
+Generated on Fri, Dec 17 2021 16:32:42 UTC
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#configuring-your-azure-synapse-workspace-to-use-access-control-lists">Configuring Your Azure Synapse Workspace to Use Access Control Lists</a>
+      <ul>
+        <li><a href="#synapse-access-control-options">Synapse Access Control Options</a></li>
+        <li><a href="#setting-acls">Setting ACLs</a></li>
+        <li><a href="#primary-storage-account-acls">Primary Storage Account ACLs</a></li>
+        <li><a href="#linked-storage-account-acls">Linked Storage Account ACLs</a></li>
+        <li><a href="#applying-acls-recursively">Applying ACLs Recursively</a></li>
+        <li><a href="#browsing-adls-gen-2-set-with-acls-in-synapse-workspace">Browsing ADLS Gen 2 Set with ACLs in Synapse Workspace</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+<script>
+    $('a[href^="http://"], a[href^="https://"]').not('a[href*="'+location.hostname+'"]').attr('target','_blank');
+</script>
+
+<script type="text/javascript">
+    !function(T,l,y){var S=T.location,u="script",k="instrumentationKey",D="ingestionendpoint",C="disableExceptionTracking",E="ai.device.",I="toLowerCase",b="crossOrigin",w="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"4",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[I](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,p,l,u;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][I]()]=i[1])}if(!e[D]){var r=e.endpointsuffix,o=r?e.location:null;e[D]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[k]||d[k]||"",p=s[D],l=p?p+"/v2/track":config.endpointUrl,(u=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=l,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),u.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,l)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:w,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(w,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(u,l))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(u);n.src=h;var e=y[b];return!e&&""!==e||"undefined"==n[b]||(n[b]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(u)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[C]&&!0!==s[C]){method="onerror",t(["_"+method]);var c=T[method];T[method]=function(e,t,n,a,i){var r=c&&c(e,t,n,a,i);return!0!==r&&m["_"+method]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);(T[t]=n).queue&&0===n.queue.length&&n.trackPageView({})}(window,document,{
+    src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js", 
+    
+    
+    
+    
+    cfg: { 
+        instrumentationKey: "758e26b7-f211-4caf-badc-e6449a1b1707"
+         
+    }});
+</script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y9PLP39P32"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y9PLP39P32');
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
